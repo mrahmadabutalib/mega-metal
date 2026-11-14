@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>منصة ميجا ميتال</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1108,6 +1109,42 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 560px) { .form, .typegrid { grid-template-columns: minmax(0, 1fr); } .logo { height: 72px; } }
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
 </style>
+<style>
+/* QA round 1 fixes */
+.bar { position: relative; top: 0; }
+.hx .container { padding-bottom: clamp(160px, 16vw, 200px); }
+.stats2 { margin-top: calc(-1 * clamp(64px, 7vw, 88px)); }
+.mouse { bottom: clamp(104px, 10vw, 124px); }
+@media (max-width: 760px) { .hx .container { padding-bottom: 110px; } .stats2 { margin-top: -56px; } }
+.grid2.eq { align-items: stretch; }
+.grid2.eq > .pnl .gthumbs { flex: 1; grid-auto-rows: minmax(110px, 1fr); }
+.grid2.eq .gthumbs img { height: 100%; min-height: 110px; }
+.fbtn { display: flex; align-items: center; gap: 12px; width: calc(100% + 16px); margin-inline: -8px; background: none; border: 0; padding: 6px 8px; border-radius: 10px; text-align: start; color: inherit; font: inherit; cursor: pointer; transition: background .15s; }
+.fbtn:hover { background: #F2F6FB; }
+.fbtn .fd { flex: 1; }
+.fgo { color: var(--brand); opacity: .45; display: inline-flex; transition: opacity .15s; }
+.fbtn:hover .fgo { opacity: 1; }
+.feed li { padding: 4px 0; }
+.feed li + li::before { top: -6px; height: 14px; }
+.flist .fbtn { border-top: 1px solid #EEF2F7; border-radius: 0; }
+.flist .fbtn:first-child { border-top: 0; }
+.hm-bd { position: fixed; inset: 0; z-index: 60; background: rgba(7,18,34,.55); display: flex; align-items: flex-start; justify-content: center; padding: clamp(16px, 6vh, 64px) 16px; overflow-y: auto; animation: fadeIn .2s ease; }
+.hm { background: #fff; border-radius: 18px; width: min(620px, 100%); box-shadow: 0 30px 70px rgba(7,18,34,.35); display: flex; flex-direction: column; overflow: hidden; cursor: default; }
+.hm-h { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EEF2F7; }
+.hm-h h2 { font-size: 18px; flex: 1; min-width: 0; }
+.hm-x { flex: none; width: 40px; height: 40px; border-radius: 10px; border: 1px solid #E3E9F1; background: #fff; display: flex; align-items: center; justify-content: center; color: var(--ink); }
+.hm-b { padding: 16px 20px 22px; display: flex; flex-direction: column; gap: 16px; }
+.hm-b h3 { font-size: 15px; }
+.htl { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.htl li { display: flex; gap: 12px; position: relative; padding-bottom: 16px; }
+.htl li:not(:last-child)::before { content: ""; position: absolute; top: 38px; bottom: 2px; inset-inline-start: 16px; width: 2px; background: #E3E9F1; }
+.ht-m { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.ht-top { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.ht-top strong { font-size: 14.5px; }
+.ht-d { background: #F5F8FC; border-radius: 10px; padding: 8px 10px; font-size: 13.5px; margin-top: 4px; }
+.pill:disabled { opacity: .45; cursor: not-allowed; }
+</style>
+
 
 <header class="bar">
   <div class="container gutter bar-in">
@@ -1224,7 +1261,8 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   const STF = (k) => L(STAFF.find((r) => r[0] === k) || [k, k]);
   const QST = [['جديد', 'New', 'a'], ['تم التواصل', 'Contacted', 'b'], ['أُرسل العرض', 'Quote sent', 'v'], ['تعاقد', 'Won', 'g'], ['لم يتم', 'Lost', 'n']];
   const REP = (k) => L(REPS.find((r) => r[0] === k) || [k, k]);
-  const CITY = (c) => L({ 'الرياض': ['الرياض', 'Riyadh'], 'القصيم': ['القصيم', 'Qassim'] }[c] || [c, c]);
+  const CITIES = [['الرياض', 'Riyadh'], ['جدة', 'Jeddah'], ['مكة المكرمة', 'Makkah'], ['المدينة المنورة', 'Madinah'], ['الدمام', 'Dammam'], ['الخبر', 'Khobar'], ['الظهران', 'Dhahran'], ['الأحساء', 'Al Ahsa'], ['الجبيل', 'Jubail'], ['القصيم', 'Qassim'], ['حائل', 'Hail'], ['تبوك', 'Tabuk'], ['الطائف', 'Taif'], ['ينبع', 'Yanbu'], ['أبها', 'Abha'], ['خميس مشيط', 'Khamis Mushait'], ['جازان', 'Jazan'], ['نجران', 'Najran'], ['الباحة', 'Al Baha'], ['الجوف', 'Al Jouf'], ['أخرى', 'Other']];
+  const CITY = (c) => L(CITIES.find((x) => x[0] === c) || [c, c]);
 
   const PLANS = [
     { n: 4, dur: ['٤ إلى ٥ أسابيع', '4–5 weeks'], lead: ['كل ما في «متابعة العملاء»، ومعها الدفع والفواتير وخطط الدفع ولوحة مالية.', 'Everything in Client Tracking, plus payments, invoices, payment plans and a finance dashboard.'], price: 13500, was: 27000, mo: 450, wasMo: 900, note: ['رسوم بوابة الدفع على كل عملية حسب مزوّد الخدمة', 'Payment gateway fees per transaction, set by the provider'] },
@@ -1320,7 +1358,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       { name: ['فيلا', 'Villa'], area: ['الياسمين', 'Al Yasmin'], stage: ['تشطيب', 'Finishing'], types: ['ألمنيوم', 'Aluminium'], status: 'لم يتم', rep: 'محمد يسري', note: ['تعاقدوا مع جهة أخرى', 'Went with another supplier'], img: 'alu-corner' }
     ],
     quotes: [
-      { id: 'r1', name: ['عبدالعزيز', 'Abdulaziz'], phone: '0551239876', svc: 'perg', city: 'الرياض', when: ['اليوم ١١:٢٠ ص', 'Today 11:20 AM'], age: 2, status: 'جديد', owner: '' },
+      { id: 'r1', name: ['عبدالعزيز', 'Abdulaziz'], phone: '0551239876', svc: 'perg', city: 'الرياض', when: ['اليوم ١١:٢٠ ص', 'Today 11:20 AM'], age: 2, status: 'جديد', owner: '', det: ['مظلة سيارات لمدخل فيلا، تقريبًا ٦×٥ م، بألواح مثقبة.', 'Carport for a villa entrance, about 6×5 m, perforated panels.'] },
       { id: 'r2', name: ['ماجد', 'Majed'], phone: '0538821100', svc: 'door', city: 'الرياض', when: ['قبل يومين', '2 days ago'], age: 50, status: 'جديد', owner: '' },
       { id: 'r3', name: ['شركة [اسم الشركة] للتطوير', '[Company name] Development'], phone: '0567770011', svc: 'alu', city: 'الرياض', when: ['أمس', 'Yesterday'], age: 26, status: 'تم التواصل', owner: 'أحمد العبد' },
       { id: 'r4', name: ['فهد', 'Fahad'], phone: '0544456677', svc: 'rail', city: 'القصيم', when: ['٦ نوفمبر', '6 Nov'], age: 130, status: 'أُرسل العرض', owner: 'إبراهيم رزق' },
@@ -1511,7 +1549,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       '<ol aria-label="' + T('مثال لمراحل مشروع', 'Example project stages') + '"><li><span class="dot d-done">✓</span><strong>' + T('اعتماد التصميم', 'Design approved') + '</strong></li><li><span class="dot d-done">✓</span><strong>' + T('التصنيع في المصنع', 'Factory fabrication') + '</strong></li><li><span class="dot d-cur">' + N(3) + '</span><span><strong>' + T('التركيب في الموقع', 'On-site installation') + '</strong> <span class="small" style="color:var(--brand);font-weight:700">' + T('جارٍ الآن', 'In progress') + '</span></span></li><li><span class="dot d-next">' + N(4) + '</span><strong>' + T('التسليم', 'Handover') + '</strong></li></ol></div></div></section>';
     return siteHeader() +
       '<section class="hx"><div class="hx-bg" id="hxbg"><img src="' + I('golf-night') + '" alt=""></div><span class="hx-fade"></span><span class="hx-aur" aria-hidden="true"><i></i><i></i><i></i></span><div class="container gutter"><span class="tag rv"><i></i><span class="shine">' + T('مصنع أعمال حديد وألمنيوم — الرياض', 'Steel & aluminium works — Riyadh') + '</span></span><h1 class="rv" style="--d:80ms">' + T('صلابة الحديد..<br><span class="hg">بدقّة الصنعة.</span>', 'Built strong.<br><span class="hg">Crafted precise.</span>') + '</h1>' + (en() ? '' : '<span class="en-sub rv" style="--d:140ms">BUILT STRONG · CRAFTED PRECISE</span>') + '<p class="rv" style="--d:200ms">' + T('نصمّم ونصنّع ونركّب: واجهات، مظلات، أبواب، درابزين وسواتر بقص CNC، من المخطط إلى التسليم.', 'We design, fabricate and install facades, shades, doors, handrails and CNC screens, from drawing to handover.') + '</p><div class="row rv" style="--d:260ms"><button type="button" class="btn brand mag glowb" data-act="go" data-v="projects">' + T('شاهد أعمالنا', 'See our work') + ' ' + FWD + '</button><button type="button" class="btn glass mag" data-act="noop">' + WA + T(' تواصل عبر واتساب', ' Chat on WhatsApp') + '</button></div></div><button type="button" class="mouse" data-act="scrolldown" aria-label="' + T('انزل للمحتوى', 'Scroll down') + '"></button></section>' +
-      '<section class="zone z-mist sl" id="svcs" style="padding-top:0"><div class="container gutter"><div class="stats2 rv" aria-label="' + T('أرقام المصنع (قيم تقديرية للعرض)', 'Factory figures (placeholder values)') + '">' + stats.map((s) => '<div><strong dir="ltr">[<span class="cnt" data-to="' + s[0] + '">' + N(0) + '</span>+]</strong><span>' + s[1] + '</span></div>').join('') + '</div>' +
+      '<section class="zone z-mist sl" id="svcs" style="padding-top:0"><div class="container gutter"><div class="stats2 rv" aria-label="' + T('أرقام المصنع (قيم تقديرية للعرض)', 'Factory figures (placeholder values)') + '">' + stats.map((s) => '<div><strong><bdi dir="ltr">+<span class="cnt" data-to="' + s[0] + '">' + N(0) + '</span></bdi></strong><span>' + s[1] + '</span></div>').join('') + '</div>' +
       '<div class="shead"><div><span class="kick">' + T('خدماتنا', 'Services') + '</span><h2 class="ttl2">' + T('ما <em>نصنعه</em>', 'What we <em>make</em>') + '</h2></div><button type="button" class="link-go" data-act="go" data-v="services">' + T('كل الخدمات', 'All services') + ' ' + FWD + '</button></div><div class="bento">' + tiles + '</div></div></section>' +
       '<section class="zone z-navy glow sl"><div class="container gutter"><div class="shead"><div><span class="kick">' + T('أحدث أعمالنا', 'Latest work') + '</span><h2 class="ttl2">' + T('مشاريع <em>نفّذناها</em>', 'Projects we <em>delivered</em>') + '</h2></div><button type="button" class="link-go" data-act="go" data-v="projects">' + T('كل المشاريع', 'All projects') + ' ' + FWD + '</button></div>' +
       (lead ? '<div class="rv">' + photoTile(lead, 'feat', '<span class="badge-f">★ ' + T('مشروع مميز', 'Featured project') + '</span>') + '</div>' : '') +
@@ -1524,7 +1562,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   function siteContact() {
     const body = S.qSent
       ? '<div class="sent" role="status"><span class="okc">' + ICO.check + '</span><h3 style="font-size:22px">' + T('وصلنا طلبك', 'We got your request') + '</h3><p class="muted">' + T('نرجع لك بعرض السعر خلال يوم عمل، وغالبًا على واتساب.', 'We will come back with a quote within one working day, usually on WhatsApp.') + '</p><button type="button" class="btn ghost" data-act="qagain">' + T('طلب آخر', 'Another request') + '</button></div>'
-      : '<form class="form" data-form="quote" novalidate><h3 class="full" style="font-size:21px">' + T('اطلب عرض سعر', 'Request a quote') + '</h3><label class="field">' + T('الاسم', 'Name') + ' *<input id="q-name" type="text" autocomplete="name" aria-describedby="e-name"><span class="ferr" id="e-name"></span></label><label class="field">' + T('الجوال', 'Phone') + ' *<input id="q-phone" type="tel" class="ltr-in" placeholder="05xxxxxxxx" autocomplete="tel" aria-describedby="e-phone"><span class="ferr" id="e-phone"></span></label><label class="field">' + T('الخدمة', 'Service') + '<select id="q-svc">' + SERVICES.map((s) => '<option value="' + s.id + '">' + L(s.name) + '</option>').join('') + '</select></label><label class="field">' + T('المدينة', 'City') + '<input id="q-city" type="text"></label><label class="field full">' + T('تفاصيل المشروع', 'Project details') + '<textarea id="q-det" rows="3"></textarea></label><button type="submit" class="btn brand full">' + T('أرسل طلب عرض السعر', 'Send quote request') + '</button></form>';
+      : '<form class="form" data-form="quote" novalidate><h3 class="full" style="font-size:21px">' + T('اطلب عرض سعر', 'Request a quote') + '</h3><label class="field">' + T('الاسم', 'Name') + ' *<input id="q-name" type="text" autocomplete="name" aria-describedby="e-name"><span class="ferr" id="e-name"></span></label><label class="field">' + T('الجوال', 'Phone') + ' *<input id="q-phone" type="tel" class="ltr-in" placeholder="05xxxxxxxx" autocomplete="tel" aria-describedby="e-phone"><span class="ferr" id="e-phone"></span></label><label class="field">' + T('الخدمة', 'Service') + '<select id="q-svc">' + SERVICES.map((s) => '<option value="' + s.id + '">' + L(s.name) + '</option>').join('') + '</select></label><label class="field">' + T('المدينة', 'City') + '<select id="q-city"><option value="">' + T('اختر المدينة', 'Choose a city') + '</option>' + CITIES.map((c) => '<option value="' + c[0] + '">' + L(c) + '</option>').join('') + '</select></label><label class="field full">' + T('تفاصيل المشروع', 'Project details') + '<textarea id="q-det" rows="3"></textarea></label><button type="submit" class="btn brand full">' + T('أرسل طلب عرض السعر', 'Send quote request') + '</button></form>';
     return '<section id="contact" class="zone z-navy glow sl"><div class="container gutter ct"><div class="ct-info rv"><span class="kick">' + T('تواصل معنا', 'Contact us') + '</span><h2 class="ttl2">' + T('عندك <em>مشروع؟</em>', 'Have a <em>project?</em>') + '</h2><p class="lead2">' + T('أرسل نوع العمل والمدينة، ونرجع لك بعرض سعر. أو كلّمنا مباشرة على واتساب.', 'Send the type of work and the city, and we will come back with a quote. Or message us on WhatsApp.') + '</p><div><button type="button" class="btn wa" data-act="noop">' + WA + T(' واتساب: [رقم الواتساب]', ' WhatsApp: [number]') + '</button></div><span class="ct-line"><i>' + ICO.mail + '</i><span dir="ltr">info@[company-domain].sa</span></span><span class="ct-line"><i>' + ICO.pin + '</i>' + T('[عنوان المصنع] · ساعات العمل: [الأوقات]', '[Factory address] · Hours: [hours]') + '</span></div><div class="ct-card rv" style="--d:120ms">' + body + '</div></div></section>';
   }
   function siteList(kind) {
@@ -1630,7 +1668,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   }
   const crumbSep = '<span aria-hidden="true">›</span>';
 
-  const curNav = () => S.admin === 'job' ? 'jobs' : (S.admin === 'client' || S.admin === 'cinvite' || S.admin === 'stmt') ? 'clients' : S.admin === 'invite' ? 'users' : S.admin === 'lnew' ? 'leads' : S.admin;
+  const curNav = () => S.admin === 'job' ? 'jobs' : (S.admin === 'client' || S.admin === 'cinvite' || S.admin === 'stmt') ? 'clients' : (S.admin === 'invite' || S.admin === 'user') ? 'users' : S.admin === 'lnew' ? 'leads' : S.admin;
   const navItems = () => [['home', T('نظرة عامة', 'Overview'), true, 'home', T('الرئيسية', 'Home')], ['projects', T('معرض الأعمال', 'Gallery'), true, 'img', T('المعرض', 'Gallery')], ['jobs', T('مشاريع التنفيذ', 'Active jobs'), has('portal'), 'tool', T('المشاريع', 'Jobs')], ['clients', T('العملاء', 'Clients'), has('portal'), 'users', T('العملاء', 'Clients')], ['finance', T('المالية', 'Finance'), has('fin'), 'wallet', T('المالية', 'Finance')], ['leads', T('فرص ميدانية', 'Field leads'), has('leads'), 'pin', T('الفرص', 'Leads')], ['quotes', T('طلبات عروض الأسعار', 'Quote requests'), has('quotes'), 'inbox', T('الطلبات', 'Quotes')], ['tickets', T('طلبات الخدمة', 'Service requests'), has('portal'), 'tool', T('الخدمة', 'Service')], ['users', T('المستخدمون والصلاحيات', 'Users & permissions'), has('roles'), 'shield', T('المستخدمون', 'Users')]].filter((x) => x[2]);
   const navBadge = (k) => { if (k === 'leads') return S.queue.length; if (k === 'finance') return S.jobs.filter(jLate).length; if (k === 'quotes') return S.quotes.filter((q) => q.status === 'جديد').length; if (k === 'tickets') return S.tickets.filter((t) => t.st === 'جديد').length; return 0; };
   function tabBar() {
@@ -1675,19 +1713,19 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     else if (L3) right = panel(T('آخر دخول للعملاء', 'Recent client sign-ins'), '<div class="flist">' + S.clients.map((c) => '<div class="frow">' + av(c) + '<div class="fr-m"><button type="button" class="lnk strong" data-act="cli" data-v="' + c.id + '">' + esc(L(c.name)) + '</button><span class="small muted">' + N(cJobs(c).length) + projWord(cJobs(c).length) + '</span></div><span class="small ' + (c.last ? 'muted' : '') + '">' + (c.last ? L(c.last) : pill(T('لم يدخل بعد', 'Never'), 'a')) + '</span></div>').join('') + '</div>', linkBtn('adm', 'clients', T('العملاء', 'Clients') + ' ' + FWD));
     else right = panel(T('آخر طلبات عروض الأسعار', 'Latest quote requests'), '<div class="flist">' + S.quotes.map((q) => '<div class="frow"><span class="av" style="background:#B86A00" aria-hidden="true">' + esc(initials(L(q.name))) + '</span><div class="fr-m"><strong>' + esc(L(q.name)) + '</strong><span class="small muted">' + svcName(q.svc) + ' · ' + (q.owner ? STF(q.owner) : T('لم يُسند', 'Unassigned')) + '</span></div>' + (qLate(q) ? pill(T('متأخر', 'Late'), 'r') : '<span class="small muted">' + L(q.when) + '</span>') + '</div>').join('') + '</div>', linkBtn('adm', 'quotes', T('كل الطلبات', 'All requests') + ' ' + FWD));
     const feed = [];
-    if (L4) invoices().filter((x) => x.it.st === 'مدفوعة').slice(0, 2).forEach((x) => feed.push(['cash', 'g', T('سدّد ', '') + esc(L(cli(x.j.client).name)) + T(' «', ' paid «') + L(x.it.l) + T('» لمشروع ', '» for ') + esc(L(x.j.name)) + ' · ' + SAR(x.a), L(x.it.d)]));
-    if (L3) { feed.push(['cam', 'b', T('رُفعت صورتان لمرحلة التركيب — فيلا — حي النرجس', '2 photos added to Installation — Villa, Al Narjis'), T('٩ نوفمبر', '9 Nov')]); feed.push(['login', 'v', T('دخل عبدالله السالم بوابة العملاء', 'Abdullah Al-Salem signed in to the portal'), T('اليوم ١٠:١٤ ص', 'Today 10:14 AM')]); }
-    if (has('quotes')) feed.push(['inbox', 'a', T('طلب عرض سعر جديد من عبدالعزيز — المظلات والبرجولات', 'New quote request from Abdulaziz — Shades & Pergolas'), T('اليوم ١١:٢٠ ص', 'Today 11:20 AM')]);
-    if (has('leads')) feed.push(['pin', 'g', T('رصد أحمد العبد فرصة جديدة في حي النرجس', 'Ahmed Elabd captured a new lead in Al Narjis'), T('اليوم', 'Today')]);
-    feed.push(['img', 'b', T('أُضيف «برجولة سطح فيلا» إلى معرض الأعمال', '«Villa rooftop pergola» added to the gallery'), T('أمس', 'Yesterday')]);
+    if (L4) invoices().filter((x) => x.it.st === 'مدفوعة').slice(0, 2).forEach((x) => feed.push(['cash', 'g', T('سدّد ', '') + esc(L(cli(x.j.client).name)) + T(' «', ' paid «') + L(x.it.l) + T('» لمشروع ', '» for ') + esc(L(x.j.name)) + ' · ' + SAR(x.a), L(x.it.d), 'pay:' + x.j.id + ':' + x.i]));
+    if (L3) { feed.push(['cam', 'b', T('رُفعت صورتان لمرحلة التركيب — فيلا — حي النرجس', '2 photos added to Installation — Villa, Al Narjis'), T('٩ نوفمبر', '9 Nov'), 'job:p1']); feed.push(['login', 'v', T('دخل عبدالله السالم بوابة العملاء', 'Abdullah Al-Salem signed in to the portal'), T('اليوم ١٠:١٤ ص', 'Today 10:14 AM'), 'cli:c1']); }
+    if (has('quotes')) feed.push(['inbox', 'a', T('طلب عرض سعر جديد من عبدالعزيز — المظلات والبرجولات', 'New quote request from Abdulaziz — Shades & Pergolas'), T('اليوم ١١:٢٠ ص', 'Today 11:20 AM'), 'q:r1']);
+    if (has('leads')) feed.push(['pin', 'g', T('رصد أحمد العبد فرصة جديدة في حي النرجس', 'Ahmed Elabd captured a new lead in Al Narjis'), T('اليوم', 'Today'), 'lead:q1']);
+    feed.push(['img', 'b', T('أُضيف «برجولة سطح فيلا» إلى معرض الأعمال', '«Villa rooftop pergola» added to the gallery'), T('أمس', 'Yesterday'), 'gal:pergola']);
     const acts = (has('leads') ? '<button type="button" class="btn ghost" data-act="lnew">' + ic('cam') + T(' رصد فرصة', ' Capture a lead') + '</button>' : '') + '<button type="button" class="btn ghost" data-act="newproj2">' + ic('img') + T(' إضافة للمعرض', ' Add to gallery') + '</button>' + (L3 ? '<button type="button" class="btn wa" data-act="cinvite">' + WA + T(' دعوة عميل', ' Invite client') + '</button><button type="button" class="btn primary" data-act="cnew">' + ic('plus') + T(' عميل ومشروع', ' Client & job') + '</button>' : '');
     return phead(T('صباح الخير، إبراهيم', 'Good morning, Ibrahim'), T('الأربعاء ١١ نوفمبر · هذا ملخص المصنع اليوم.', 'Wednesday 11 Nov · here is the factory today.'), acts) +
       (has('fin') && allItems().some((x) => x.it.proof && x.it.st !== 'مدفوعة') ? '<div class="alertbar" style="background:linear-gradient(90deg,#EFEAFB,#F7F4FE);border-color:#D7CCF5;color:#45318F">' + ic('cash') + '<span>' + N(allItems().filter((x) => x.it.proof && x.it.st !== 'مدفوعة').length) + T(' إثبات دفع من العملاء بانتظار التأكيد.', ' client payment proof(s) awaiting confirmation.') + '</span><button type="button" class="btn ghost sm" data-act="adm" data-v="finance">' + T('مراجعة', 'Review') + '</button></div>' : '') +
       (has('portal') && S.tickets.some((t) => t.st === 'جديد') ? '<div class="alertbar" style="background:linear-gradient(90deg,#E6EFFB,#F3F7FD);border-color:#C5D8F3;color:#1F4B8F">' + ic('inbox') + '<span>' + N(S.tickets.filter((t) => t.st === 'جديد').length) + T(' طلب خدمة جديد من العملاء.', ' new service request(s) from clients.') + '</span><button type="button" class="btn ghost sm" data-act="adm" data-v="tickets">' + T('عرض', 'View') + '</button></div>' : '') +
       (has('quotes') && S.quotes.filter(qLate).length ? '<div class="alertbar">' + ic('alert') + '<span>' + N(S.quotes.filter(qLate).length) + T(' طلب عرض سعر بدون إسناد منذ أكثر من يوم.', ' quote request(s) unassigned for over a day.') + '</span><button type="button" class="btn ghost sm" data-act="qgo">' + T('إسناد الآن', 'Assign now') + '</button></div>' : '') +
       '<div class="kpis">' + k.join('') + '</div>' +
-      '<div class="grid2">' + left + right + '</div>' +
-      panel(T('آخر النشاطات', 'Recent activity'), '<ol class="feed">' + feed.map((f) => '<li><span class="fi t-' + f[1] + '">' + ic(f[0], 16) + '</span><span class="fd">' + f[2] + '</span><span class="small muted">' + f[3] + '</span></li>').join('') + '</ol>');
+      '<div class="grid2 eq">' + left + right + '</div>' +
+      panel(T('آخر النشاطات', 'Recent activity'), '<ol class="feed">' + feed.map((f) => '<li><button type="button" class="fbtn" data-act="hist" data-v="' + f[4] + '"><span class="fi t-' + f[1] + '">' + ic(f[0], 16) + '</span><span class="fd">' + f[2] + '</span><span class="small muted">' + f[3] + '</span><span class="fgo">' + FWD + '</span></button></li>').join('') + '</ol>', '<span class="small muted">' + T('اضغط على أي نشاط لعرض سجله الكامل', 'Click any item for its full history') + '</span>');
   }
 
   /* Active jobs */
@@ -1870,7 +1908,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     const cell = (v) => v === 'y' ? '<span class="yes">✓</span>' : v === 'n' ? '<span class="no">—</span>' : '<span class="part">' + L(v) + '</span>';
     const tagOf = (l) => l === 'x' ? '<span class="tag tx">' + T('فرص ميدانية', 'Field leads') + '</span>' : '<span class="tag ' + (l >= 3 ? 't3' : 't2') + '">' + pkgName(l) + '</span>';
     const urows = S.staff.map((u) => { const rs = u.roles.filter((r) => r !== 'r' || rep);
-      return '<tr><td><span class="who" style="cursor:default">' + av(u) + '<span>' + esc(L(u.name)) + '</span></span></td><td dir="ltr" class="num" style="text-align:start">' + esc(u.phone) + '</td><td><div class="chips2">' + rs.map((r) => pill(roleName(r), r === 'm' ? 'b' : r === 'mk' ? 'g' : 'v')).join('') + '</div></td><td>' + (u.st === 'active' ? pill(T('نشط', 'Active'), 'g') : pill(T('دعوة مرسلة · صالحة ٧ أيام', 'Invite sent · valid 7 days'), 'a')) + '</td><td>' + (u.st === 'invited' ? '<div class="row" style="gap:6px;flex-wrap:nowrap"><button type="button" class="btn ghost sm" data-act="uresend" data-v="' + u.id + '">' + WA + T(' إعادة الإرسال', ' Resend') + '</button><button type="button" class="btn ghost sm danger" data-act="ucancel" data-v="' + u.id + '">' + T('إلغاء', 'Cancel') + '</button></div>' : '<span class="small muted">—</span>') + '</td></tr>'; }).join('');
+      return '<tr class="click' + (u.st === 'suspended' ? ' off' : '') + '" data-act="uedit" data-v="' + u.id + '"><td><button type="button" class="who" data-act="uedit" data-v="' + u.id + '">' + av(u) + '<span>' + esc(L(u.name)) + '</span></button></td><td dir="ltr" class="num" style="text-align:start">' + esc(u.phone) + '</td><td><div class="chips2">' + rs.map((r) => pill(roleName(r), r === 'm' ? 'b' : r === 'mk' ? 'g' : 'v')).join('') + '</div></td><td>' + (u.st === 'active' ? pill(T('نشط', 'Active'), 'g') : u.st === 'suspended' ? pill(T('موقوف', 'Suspended'), 'r') : pill(T('دعوة مرسلة · صالحة ٧ أيام', 'Invite sent · valid 7 days'), 'a')) + '</td><td>' + (u.st === 'invited' ? '<div class="row" style="gap:6px;flex-wrap:nowrap"><button type="button" class="btn ghost sm" data-act="uresend" data-v="' + u.id + '">' + WA + T(' إعادة الإرسال', ' Resend') + '</button><button type="button" class="btn ghost sm danger" data-act="ucancel" data-v="' + u.id + '">' + T('إلغاء', 'Cancel') + '</button></div>' : '<button type="button" class="btn ghost sm" data-act="uedit" data-v="' + u.id + '">' + ic('shield', 15) + T(' الملف والصلاحيات', ' Profile & permissions') + '</button>') + '</td></tr>'; }).join('');
     return phead(T('المستخدمون والصلاحيات', 'Users & permissions'), T('كل شخص يدخل بجواله، ويرى ما يسمح به دوره. المستخدم الواحد يقدر يحمل أكثر من دور.', 'Everyone signs in with their phone and sees what their role allows. One person can hold more than one role.'), '<button type="button" class="btn primary" data-act="uinvite">' + PLUS + T(' دعوة مستخدم', ' Invite user') + '</button>') +
       '<div class="table-wrap rv"><table style="min-width:760px"><thead><tr><th scope="col">' + T('الاسم', 'Name') + '</th><th scope="col">' + T('الجوال', 'Phone') + '</th><th scope="col">' + T('الأدوار', 'Roles') + '</th><th scope="col">' + T('الحالة', 'Status') + '</th><th scope="col">' + T('إجراء', 'Action') + '</th></tr></thead><tbody>' + urows + '</tbody></table></div>' +
       '<h2 style="font-size:19px">' + T('مصفوفة الصلاحيات', 'Permission matrix') + '</h2><div class="table-wrap"><table style="min-width:620px"><thead><tr><th scope="col">' + T('الصلاحية', 'Permission') + '</th>' + cols.map((c) => '<th scope="col" style="text-align:center;color:var(--ink);font-weight:700">' + c + '</th>').join('') + '</tr></thead><tbody>' +
@@ -1883,6 +1921,107 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   function waPreview(title, lines, btn, link) {
     return '<div class="wa-phone"><div class="wa-top"><span class="av" style="background:#fff;padding:3px"><img src="' + I('logo') + '" alt="" style="width:100%;height:100%;object-fit:contain"></span><div><strong>' + T('ميجا ميتال', 'Mega Metal') + ' <span class="wa-vf" aria-label="' + T('حساب موثّق', 'Verified') + '">✓</span></strong><span>' + T('حساب أعمال', 'Business account') + '</span></div></div><div class="wa-body"><div class="wa-bubble"><strong>' + title + '</strong>' + lines.map((l) => '<p>' + l + '</p>').join('') + (link ? '<p class="wa-link" dir="ltr">' + link + '</p>' : '') + '<span class="wa-time">' + T('الآن', 'now') + ' ✓✓</span></div>' + (btn ? '<div class="wa-cta">' + btn + '</div>' : '') + '</div></div>';
   }
+
+  /* ---------- Activity history (QA: every activity opens its full record) ---------- */
+  const ME = 'إبراهيم رزق';
+  const STAFF_AR = (k) => k;
+  function qLog(q) {
+    if (q.log) return q.log;
+    const w = L(q.when);
+    const lg = [{ t: q.when, sys: true, ic: 'inbox', tone: 'a', a: ['وصل الطلب من نموذج «اطلب عرض سعر» في الموقع', 'Request received from the website quote form'], d: ['وصل إشعار واتساب للمدير ومدير التسويق.', 'The manager and marketing manager got a WhatsApp alert.'] }];
+    if (q.owner) {
+      const by = q.owner === 'أحمد العبد' ? ME : 'أحمد العبد';
+      lg.push({ t: [w + ' · بعد ٤٠ دقيقة', w + ' · 40 min later'], who: by, ic: 'users', tone: 'b', a: ['أسند الطلب إلى ' + q.owner, 'Assigned to ' + STF(q.owner)] });
+      lg.push({ t: [w + ' · بعد ٤٠ دقيقة', w + ' · 40 min later'], sys: true, ic: 'phone', tone: 'g', a: ['وصل ' + q.owner + ' إشعار واتساب بالطلب', STF(q.owner) + ' got a WhatsApp alert'] });
+      const order = ['تم التواصل', 'أُرسل العرض', 'تعاقد'];
+      const upto = q.status === 'لم يتم' ? 2 : order.indexOf(q.status) + 1;
+      const acts = { 'تم التواصل': [['اتصل بالعميل وغيّر الحالة إلى «تم التواصل»', 'Called the client; status «Contacted»'], ['بعد ساعتين', '2 hours later'], 'phone', 'b'], 'أُرسل العرض': [['أرسل عرض السعر للعميل على واتساب', 'Sent the quote to the client on WhatsApp'], ['بعد يومين', '2 days later'], 'doc', 'v'], 'تعاقد': [['سجّل التعاقد مع العميل', 'Recorded the contract'], ['بعد ٥ أيام', '5 days later'], 'cash', 'g'] };
+      order.slice(0, upto).forEach((k) => { const x = acts[k]; lg.push({ t: x[1], who: q.owner, ic: x[2], tone: x[3], a: x[0] }); });
+      if (q.status === 'لم يتم') lg.push({ t: ['بعد أسبوع', '1 week later'], who: q.owner, ic: 'alert', tone: 'r', a: ['أغلق الطلب: «لم يتم»', 'Closed the request: «Lost»'], d: ['العميل اختار مورّدًا آخر.', 'The client chose another supplier.'] });
+    }
+    return (q.log = lg);
+  }
+  function histOf(key) {
+    const k = String(key || '').split(':');
+    if (k[0] === 'q') {
+      const q = S.quotes.find((x) => x.id === k[1]); if (!q) return null;
+      const st = QST.find((x) => x[0] === q.status);
+      return { title: T('طلب عرض سعر — ', 'Quote request — ') + esc(L(q.name)), ic: 'inbox', tone: 'a',
+        info: [[T('العميل', 'Client'), esc(L(q.name))], [T('الجوال', 'Phone'), '<span dir="ltr">' + esc(q.phone || '') + '</span>'], [T('الخدمة', 'Service'), svcName(q.svc)], [T('المدينة', 'City'), esc(CITY(q.city))], [T('تفاصيل الطلب', 'Details'), q.det ? esc(Array.isArray(q.det) ? L(q.det) : q.det) : '—'], [T('المسؤول', 'Owner'), q.owner ? esc(STF(q.owner)) : pill(T('لم يُسند بعد', 'Not assigned yet'), 'r')], [T('الحالة', 'Status'), pill(T(st[0], st[1]), st[2])]],
+        log: qLog(q), act: [T('فتح طلبات عروض الأسعار', 'Open quote requests'), 'adm', 'quotes'] };
+    }
+    if (k[0] === 'lead') {
+      const l = S.queue.find((x) => x.id === k[1]);
+      if (!l) return { title: T('فرصة ميدانية', 'Field lead'), ic: 'pin', tone: 'g', info: [], log: [{ t: ['الآن', 'Just now'], who: ME, ic: 'pin', tone: 'g', a: ['راجع الفرصة ونقلها من قائمة المراجعة', 'Reviewed the lead and moved it out of the review queue'] }], act: [T('فتح الفرص الميدانية', 'Open field leads'), 'adm', 'leads'] };
+      return { title: T('فرصة ميدانية — ', 'Field lead — ') + esc(L(l.name)) + T(' — ', ' — ') + esc(L(l.area)), ic: 'pin', tone: 'g', img: l.img,
+        info: [[T('الموقع', 'Location'), T('حي ', '') + esc(L(l.area))], [T('مرحلة البناء', 'Build stage'), esc(L(l.stage))], [T('الأعمال المتوقعة', 'Likely work'), esc(L(l.types))], [T('رصدها', 'Captured by'), esc(STF(l.by))], [T('الحالة', 'Status'), pill(T('بانتظار مراجعتك · تبقّى ', 'Awaiting your review · ') + N(l.left) + T(' يومًا', ' days left'), 'a')]],
+        log: [{ t: [L(l.when) + ' ٩:٤٢ ص', L(l.when) + ' 9:42 AM'], who: l.by, ic: 'cam', tone: 'b', a: ['صوّر لوحة المشروع من الشارع ورفعها', 'Photographed the site board and uploaded it'] }, { t: [L(l.when) + ' ٩:٤٢ ص', L(l.when) + ' 9:42 AM'], sys: true, ic: 'pin', tone: 'g', a: ['سُجّل الموقع تلقائيًا من الصورة: حي ' + L(l.area), 'Location read from the photo: ' + L(l.area)] }, { t: [L(l.when) + ' ٩:٤٣ ص', L(l.when) + ' 9:43 AM'], sys: true, ic: 'doc', tone: 'v', a: ['قُرئت بيانات اللوحة: المقاول ورقمه ونوع المبنى', 'Board details read: contractor, number and building type'] }, { t: [L(l.when), L(l.when)], sys: true, ic: 'alert', tone: 'a', a: ['بانتظار مراجعة إبراهيم: تأكيد أو حذف. تُحذف تلقائيًا بعد ' + N(l.left) + ' يومًا إن لم تُؤكَّد', 'Waiting for Ibrahim to confirm or delete. Auto-deleted in ' + l.left + ' days if not confirmed'] }],
+        act: [T('مراجعة الفرصة', 'Review the lead'), 'adm', 'leads'] };
+    }
+    if (k[0] === 'gal') {
+      const p = S.projects.find((x) => x.id === k[1]); if (!p) return null;
+      const n = p.photos.filter(Boolean).length;
+      return { title: T('معرض الأعمال — ', 'Gallery — ') + esc(L(p.name)), ic: 'img', tone: 'b', img: coverOf(p),
+        info: [[T('الخدمة', 'Service'), svcName(p.type)], [T('المدينة', 'City'), esc(CITY(p.city))], [T('الصور', 'Photos'), N(n)], [T('في الرئيسية', 'On the home page'), p.featured ? T('نعم، ضمن «أحدث أعمالنا»', 'Yes, in «Latest work»') : T('لا', 'No')]],
+        log: [{ t: ['أمس ٤:١٠ م', 'Yesterday 4:10 PM'], who: 'أحمد العبد', ic: 'plus', tone: 'b', a: ['أضاف المشروع إلى معرض الأعمال', 'Added the project to the gallery'] }, { t: ['أمس ٤:١٢ م', 'Yesterday 4:12 PM'], who: 'أحمد العبد', ic: 'cam', tone: 'b', a: ['رفع ' + N(n) + ' صور واختار صورة الغلاف', 'Uploaded ' + n + ' photos and chose the cover'] }].concat(p.featured ? [{ t: ['أمس ٤:١٥ م', 'Yesterday 4:15 PM'], who: ME, ic: 'eye', tone: 'v', a: ['ميّزه ليظهر في «أحدث أعمالنا» بالرئيسية', 'Featured it in «Latest work» on the home page'] }] : []).concat([{ t: ['أمس ٤:١٥ م', 'Yesterday 4:15 PM'], sys: true, ic: 'home', tone: 'g', a: ['نُشر في الموقع تحت «' + svcName(p.type) + '»', 'Published on the site under «' + svcName(p.type) + '»'] }]),
+        act: [T('فتح معرض الأعمال', 'Open the gallery'), 'adm', 'projects'] };
+    }
+    if (k[0] === 'job') {
+      const j = job(k[1]); if (!j) return null; const c = cli(j.client);
+      const lg = [{ t: j.start, who: ME, ic: 'tool', tone: 'b', a: ['أنشأ المشروع وربطه بالعميل ' + c.name[0], 'Created the job and linked it to ' + c.name[1]] }, { t: j.start, sys: true, ic: 'phone', tone: 'g', a: ['وصل العميل رابط متابعة المشروع على واتساب', 'The client got the tracking link on WhatsApp'] }];
+      STAGES.slice(1, j.stage + 1).forEach((s, i) => lg.push({ t: [['٢٠ أكتوبر', '٢ نوفمبر', '١٢ نوفمبر'][i], ['20 Oct', '2 Nov', '12 Nov'][i]], who: j.lead, ic: 'tool', tone: 'b', a: ['نقل المشروع إلى مرحلة «' + s[0] + '»', 'Moved the job to «' + s[1] + '»'] }));
+      lg.push({ t: ['٩ نوفمبر', '9 Nov'], who: j.lead, ic: 'cam', tone: 'b', a: ['رفع صورتين لمرحلة «' + STAGES[j.stage][0] + '»', 'Uploaded 2 photos to «' + STAGES[j.stage][1] + '»'] });
+      lg.push({ t: ['٩ نوفمبر', '9 Nov'], sys: true, ic: 'phone', tone: 'g', a: ['وصل العميل إشعار واتساب بالصور الجديدة', 'The client got a WhatsApp notice about the new photos'] });
+      return { title: T('مشروع — ', 'Job — ') + esc(L(j.name)), ic: 'tool', tone: 'b', img: j.cover,
+        info: [[T('العميل', 'Client'), esc(L(c.name))], [T('النطاق', 'Scope'), esc(L(j.scope))], [T('المرحلة', 'Stage'), stagePill(j)], [T('الإنجاز', 'Progress'), PCT(j.pct)], [T('مسؤول المشروع', 'Project lead'), esc(STF(j.lead))]],
+        log: lg, act: [T('فتح المشروع', 'Open the job'), 'job', j.id] };
+    }
+    if (k[0] === 'cli') {
+      const c = cli(k[1]); if (!c) return null;
+      return { title: T('العميل — ', 'Client — ') + esc(L(c.name)), ic: 'login', tone: 'v',
+        info: [[T('الجوال', 'Phone'), '<span dir="ltr">' + esc(c.phone) + '</span>'], [T('المشاريع', 'Jobs'), N(cJobs(c).length)], [T('آخر دخول', 'Last sign-in'), c.last ? L(c.last) : '—']],
+        log: [{ t: ['١٢ أكتوبر', '12 Oct'], who: ME, ic: 'users', tone: 'b', a: ['أضاف العميل وأرسل له دعوة البوابة على واتساب', 'Added the client and sent the portal invite on WhatsApp'] }, { t: ['١٢ أكتوبر', '12 Oct'], who: c.name[0], ic: 'login', tone: 'v', a: ['دخل البوابة أول مرة برقم جواله ورمز واتساب', 'First sign-in with phone and WhatsApp code'] }, { t: ['٩ نوفمبر', '9 Nov'], who: c.name[0], ic: 'eye', tone: 'v', a: ['اطّلع على صور مرحلة التركيب', 'Viewed the installation photos'] }, { t: c.last || ['—', '—'], who: c.name[0], ic: 'login', tone: 'v', a: ['دخل بوابة العملاء', 'Signed in to the client portal'] }],
+        act: [T('ملف العميل', 'Client profile'), 'cli', c.id] };
+    }
+    if (k[0] === 'pay') {
+      const j = job(k[1]); if (!j) return null; const it = j.items[+k[2]]; const c = cli(j.client);
+      return { title: T('دفعة — ', 'Payment — ') + esc(L(it.l)) + T(' — ', ' — ') + esc(L(j.name)), ic: 'cash', tone: 'g',
+        info: [[T('العميل', 'Client'), esc(L(c.name))], [T('المبلغ', 'Amount'), SAR(amt(j, it))], [T('الفاتورة', 'Invoice'), esc(it.inv || '—')], [T('الحالة', 'Status'), payPill(it.st)]],
+        log: [{ t: it.d, sys: true, ic: 'doc', tone: 'b', a: ['صدرت الفاتورة وأُرسلت للعميل على واتساب', 'Invoice issued and sent on WhatsApp'] }, { t: it.d, who: c.name[0], ic: 'cash', tone: 'g', a: ['سدّد العميل الدفعة عبر البوابة', 'The client paid through the portal'] }, { t: it.d, sys: true, ic: 'doc', tone: 'g', a: ['أُرسل إيصال السداد للعميل', 'Receipt sent to the client'] }],
+        act: [T('فتح المشروع', 'Open the job'), 'job', j.id] };
+    }
+    return null;
+  }
+  function histModal() {
+    const h = histOf(S.hist); if (!h) return '';
+    const who = (e) => e.sys ? T('النظام', 'System') : esc(STF(e.who));
+    return '<div class="hm-bd" data-act="histx"><section class="hm" role="dialog" aria-modal="true" aria-labelledby="hmTitle" data-act="hmstop"><div class="hm-h"><span class="fi t-' + h.tone + '">' + ic(h.ic, 18) + '</span><h2 id="hmTitle">' + h.title + '</h2><button type="button" class="hm-x" data-act="histx" aria-label="' + T('إغلاق', 'Close') + '">' + ic('x', 18) + '</button></div><div class="hm-b">' +
+      (h.info.length ? '<dl class="dl">' + h.info.map((r) => '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>').join('') + '</dl>' : '') +
+      '<h3>' + T('السجل الكامل', 'Full history') + ' <span class="small muted" style="font-weight:400">' + T('(من الأقدم للأحدث)', '(oldest first)') + '</span></h3><ol class="htl">' + h.log.map((e) => '<li><span class="fi t-' + (e.tone || 'b') + '">' + ic(e.ic || 'doc', 16) + '</span><div class="ht-m"><div class="ht-top"><strong>' + esc(L(e.a)) + '</strong><span class="small muted">' + esc(L(e.t)) + '</span></div><span class="small muted">' + T('بواسطة: ', 'By: ') + who(e) + '</span>' + (e.d ? '<span class="ht-d">' + esc(L(e.d)) + '</span>' : '') + '</div></li>').join('') + '</ol>' +
+      '<div class="row"><button type="button" class="btn primary" data-act="histgo" data-v="' + h.act[1] + '|' + h.act[2] + '">' + h.act[0] + '</button><button type="button" class="btn ghost" data-act="histx">' + T('إغلاق', 'Close') + '</button></div></div></section></div>';
+  }
+
+  /* ---------- User profile: edit details, roles and status ---------- */
+  const ULAST = { u1: ['اليوم ٨:٠٥ ص', 'Today 8:05 AM'], u2: ['اليوم ٧:٤٠ ص', 'Today 7:40 AM'], u3: ['أمس', 'Yesterday'], u4: ['اليوم ٩:٤٢ ص', 'Today 9:42 AM'] };
+  function adminUser() {
+    const u = S.staff.find((x) => x.id === S.uId); if (!u) { S.admin = 'users'; return adminUsers(); }
+    const f = S.ue && S.ue.id === u.id ? S.ue : (S.ue = { id: u.id, name: L(u.name), phone: u.phone, roles: u.roles.slice(), st: u.st });
+    const own = u.id === 'u1'; const ar = u.name[0];
+    const crumbs = linkBtn('adm', 'users', T('المستخدمون والصلاحيات', 'Users & permissions')) + crumbSep + '<span>' + esc(L(u.name)) + '</span>';
+    const stBox = u.st === 'invited'
+      ? pill(T('دعوة مرسلة · لم يدخل بعد', 'Invite sent · not signed in yet'), 'a')
+      : '<div class="pills" role="group" aria-label="' + T('حالة الحساب', 'Account status') + '">' + [['active', T('نشط', 'Active')], ['suspended', T('موقوف', 'Suspended')]].map((x) => '<button type="button" class="pill" data-act="uest" data-v="' + x[0] + '" aria-pressed="' + (f.st === x[0]) + '"' + (own && x[0] === 'suspended' ? ' disabled title="' + T('لا يمكن إيقاف مالك الحساب', 'The account owner cannot be suspended') + '"' : '') + '>' + x[1] + '</button>').join('') + '</div>';
+    const form = '<section class="pnl rv"><div class="pnl-h"><h2>' + T('بيانات المستخدم', 'User details') + '</h2></div><div class="form"><label class="field">' + T('الاسم', 'Name') + '<input id="ue-name" type="text" value="' + esc(f.name) + '" autocomplete="off"></label><label class="field">' + T('جوال واتساب', 'WhatsApp number') + '<input id="ue-phone" type="tel" class="ltr-in" value="' + esc(f.phone) + '"></label></div>' +
+      '<div class="field">' + T('الأدوار والصلاحيات', 'Roles & permissions') + ' <span class="small muted" style="font-weight:400">' + T('يمكن اختيار أكثر من دور', 'You can pick more than one') + '</span><div class="rolegrid">' + ROLES().map((r) => '<label class="rolecard' + (f.roles.indexOf(r[0]) >= 0 ? ' on' : '') + '"><input type="checkbox" data-uerole="' + r[0] + '"' + (f.roles.indexOf(r[0]) >= 0 ? ' checked' : '') + (own && r[0] === 'm' ? ' disabled' : '') + '><span class="rc-ic">' + ic(r[3], 20) + '</span><span class="rc-t"><strong>' + r[1] + '</strong><span class="small muted">' + r[2] + '</span>' + (own && r[0] === 'm' ? '<span class="small" style="color:var(--amber-ink)">' + T('مالك الحساب يبقى مديرًا', 'The account owner stays a manager') + '</span>' : '') + '</span><span class="rc-ck" aria-hidden="true">✓</span></label>').join('') + '</div></div>' +
+      '<div class="field">' + T('حالة الحساب', 'Account status') + stBox + (f.st === 'suspended' ? '<span class="small muted" style="font-weight:400">' + T('الموقوف لا يقدر يدخل، وتبقى بياناته وسجله كما هي.', 'A suspended user cannot sign in; their data and history stay.') + '</span>' : '') + '</div>' +
+      '<span class="small ferr" id="ue-err"></span><div class="row"><button type="button" class="btn primary" data-act="usave">' + T('حفظ التعديلات', 'Save changes') + '</button><button type="button" class="btn ghost" data-act="adm" data-v="users">' + T('إلغاء', 'Cancel') + '</button></div><span class="small muted">' + T('تسري الصلاحيات الجديدة من دخوله القادم، ويصله إشعار واتساب بالتغيير.', 'New permissions apply from their next sign-in; they get a WhatsApp notice.') + '</span></section>';
+    const qs = S.quotes.filter((q) => q.owner === ar); const ld = S.queue.filter((l) => l.by === ar).length + S.leads.filter((l) => l.rep === ar).length;
+    const side = '<section class="pnl rv" style="--d:100ms"><div class="ccard">' + av(u, 56) + '<div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:18px">' + esc(L(u.name)) + '</strong><div class="chips2">' + u.roles.filter((r) => r !== 'r' || has('leads')).map((r) => pill(roleName(r), r === 'm' ? 'b' : r === 'mk' ? 'g' : 'v')).join('') + '</div></div></div>' +
+      '<dl class="dl"><div><dt>' + T('الجوال', 'Phone') + '</dt><dd dir="ltr">' + esc(u.phone) + '</dd></div><div><dt>' + T('آخر دخول', 'Last sign-in') + '</dt><dd>' + (u.st === 'invited' ? '—' : L(ULAST[u.id] || ['أمس', 'Yesterday'])) + '</dd></div><div><dt>' + T('طلبات عروض مسندة له', 'Quote requests assigned') + '</dt><dd>' + N(qs.length) + '</dd></div>' + (has('leads') ? '<div><dt>' + T('فرص ميدانية', 'Field leads') + '</dt><dd>' + N(ld) + '</dd></div>' : '') + '</dl>' +
+      (qs.length ? '<div class="flist">' + qs.map((q) => '<button type="button" class="fbtn" data-act="hist" data-v="q:' + q.id + '"><span class="fi t-a">' + ic('inbox', 16) + '</span><span class="fd">' + esc(L(q.name)) + ' · ' + svcName(q.svc) + '</span><span class="small muted">' + T(q.status, QST.find((x) => x[0] === q.status)[1]) + '</span></button>').join('') + '</div>' : '') + '</section>';
+    return phead('', '', '', crumbs) + phead(T('ملف المستخدم', 'User profile'), T('عدّل البيانات والأدوار وحالة الحساب.', 'Edit details, roles and account status.')) + '<div class="inv-grid">' + form + side + '</div>';
+  }
+  function readUE() { const g = (id) => document.getElementById(id); if (!S.ue) return; if (g('ue-name')) S.ue.name = g('ue-name').value; if (g('ue-phone')) S.ue.phone = g('ue-phone').value; }
   function adminInvite() {
     const f = S.inv || (S.inv = { name: '', phone: '', roles: ['mk'] });
     const crumbs = linkBtn('adm', 'users', T('المستخدمون والصلاحيات', 'Users & permissions')) + crumbSep + '<span>' + T('دعوة مستخدم', 'Invite user') + '</span>';
@@ -2154,9 +2293,10 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       (C ? '<p class="small muted">' + T('للتجربة داخل التطبيق: الرقم 0550001234 والرمز 1234.', 'To try it inside the app: number 0550001234, code 1234.') + '</p>' : '') + '</div>';
     return '<div class="container gutter dv-wrap">' + side + '<div class="device"><div class="dv-screen' + (mode === 'staff' && scr === 'app' && ok ? ' staff' : '') + '"><div class="dv-island"></div><div class="dv-status"><span>9:41</span><span class="dv-si"><i></i><i></i><i></i><b></b></span></div><div class="dv-content">' + screen + '</div><div class="dv-ind"></div></div></div></div>';
   }
-  function renderAdmin() {
+  function renderAdmin() { return renderAdmin0() + (S.hist && has('admin') ? histModal() : ''); }
+  function renderAdmin0() {
     if (!has('admin')) return siteHeader() + '<div class="locked gutter"><h1 class="h2">' + T('لا توجد لوحة تحكم في الباقة «الأساسية»', 'The Basic plan has no dashboard') + '</h1><p class="muted">' + T('إضافة المشاريع وتعديل المحتوى تتم عن طريقنا برسوم لكل تعديل.', 'Projects and content changes are made by us, charged per change.') + '</p></div>' + siteFooter();
-    const pages = { tickets: adminTickets, stmt: adminStmt, lnew: adminLNew, invite: adminInvite, cinvite: adminCInvite, home: adminHome, projects: adminProjects, jobs: adminJobs, job: adminJob, clients: adminClients, client: adminClient, finance: adminFinance, leads: adminLeads, quotes: adminQuotes, users: adminUsers };
+    const pages = { tickets: adminTickets, stmt: adminStmt, lnew: adminLNew, invite: adminInvite, user: adminUser, cinvite: adminCInvite, home: adminHome, projects: adminProjects, jobs: adminJobs, job: adminJob, clients: adminClients, client: adminClient, finance: adminFinance, leads: adminLeads, quotes: adminQuotes, users: adminUsers };
     const me = { id: 'me', name: ['إبراهيم رزق', 'Ibrahim Rizk'] };
     const curIt = navItems().find((x) => x[0] === curNav());
     return '<div class="admin' + (S.navOpen ? ' nav-open' : '') + '"><aside class="side"><div class="side-top"><img src="' + I('logo') + '" alt="' + T('شعار ميجا ميتال', 'Mega Metal logo') + '"><span class="side-title">' + (curIt ? curIt[1] : '') + '</span><button type="button" class="side-burger" data-act="navtoggle" aria-expanded="' + !!S.navOpen + '" aria-controls="sideDrawer" aria-label="' + T('القائمة', 'Menu') + '">' + ic(S.navOpen ? 'x' : 'menu', 22) + '</button></div><div class="side-drawer" id="sideDrawer"><nav aria-label="' + T('لوحة التحكم', 'Dashboard') + '">' + adminNav() + '</nav><button type="button" class="btn ghost" data-act="view" data-v="site">' + T('عرض الموقع', 'View website') + '</button><div class="user-chip">' + av(me) + '<span><strong style="color:#fff;display:block">' + L(me.name) + '</strong>' + T('المدير', 'Manager') + (has('leads') ? T(' + مندوب', ' + Rep') : '') + '</span></div></div></aside><div class="side-bd" data-act="navclose" aria-hidden="true"></div><main class="main">' + (pages[S.admin] || adminHome)() + '</main>' + tabBar() + '</div>';
@@ -2482,6 +2622,20 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       S.lf = null;
       return navTo(() => { S.admin = 'leads'; S.aToast = T('وصلت الفرصة إلى «بانتظار مراجعتك». تُحذف تلقائيًا بعد ٣٠ يومًا إن لم تُؤكد.', 'The lead is in «Waiting for your review». It is deleted after 30 days unless confirmed.'); render(); });
     }
+    if (a === 'hmstop') return;
+    if (a === 'hist') { S.hist = v; return render(true); }
+    if (a === 'histx') { S.hist = null; return render(true); }
+    if (a === 'histgo') { const p = v.split('|'); S.hist = null; S.navOpen = false; S.aToast = ''; return navTo(() => { S.view = 'admin'; if (p[0] === 'adm') S.admin = p[1]; else if (p[0] === 'job') { S.admin = 'job'; S.jobOpen = p[1]; } else if (p[0] === 'cli') { S.admin = 'client'; S.cliOpen = p[1]; S.cForm = false; } render(); }); }
+    if (a === 'uedit') { S.uId = v; S.ue = null; return navTo(() => { S.admin = 'user'; S.aToast = ''; render(); }); }
+    if (a === 'uest') { readUE(); S.ue.st = v; return render(true); }
+    if (a === 'usave') {
+      readUE(); const f = S.ue; const u = S.staff.find((x) => x.id === f.id); const ph = f.phone.replace(/[\s-]/g, ''); const nm = f.name.trim();
+      const err = !nm ? T('اكتب الاسم.', 'Enter the name.') : !/^(05\d{8}|(\+?966)5\d{8})$/.test(ph) ? T('رقم جوال سعودي يبدأ بـ 05 من ١٠ أرقام.', 'A Saudi mobile number starting with 05, 10 digits.') : S.staff.some((x) => x.id !== u.id && normPh(x.phone) === normPh(ph)) ? T('هذا الرقم مسجّل لمستخدم آخر.', 'This number belongs to another user.') : !f.roles.length ? T('اختر دورًا واحدًا على الأقل.', 'Pick at least one role.') : '';
+      if (err) { document.getElementById('ue-err').textContent = err; return; }
+      if (nm !== L(u.name)) u.name = [nm, nm];
+      u.phone = ph; u.roles = f.roles.slice(); if (u.st !== 'invited') u.st = f.st; S.ue = null;
+      return navTo(() => { S.admin = 'users'; S.aToast = T('حُفظت بيانات ', 'Saved ') + nm + (u.st === 'suspended' ? T(' وأُوقف دخوله.', '; their access is suspended.') : T(' وصلاحياته، ووصله إشعار واتساب بالتغيير.', '\'s details and permissions; they got a WhatsApp notice.')); render(); });
+    }
     if (a === 'uinvite') { S.inv = null; return navTo(() => { S.admin = 'invite'; S.aToast = ''; render(); }); }
     if (a === 'usend') {
       readInv(); const f = S.inv; const ph = f.phone.replace(/[\s-]/g, '');
@@ -2558,7 +2712,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if (a === 'pback') { S.portal = S.portal === 'project' ? 'list' : 'login'; S.pErr = ''; return render(); }
     if (a === 'plogout') { S.portal = 'login'; S.code = ''; return render(); }
   });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && S.navOpen) { S.navOpen = false; render(true); return; } if (e.target.id === 'xd-val' && e.key === 'Enter') { e.preventDefault(); const b = document.querySelector('[data-act="xdapply"]'); if (b) b.click(); } });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && S.hist) { S.hist = null; render(true); return; } if (e.key === 'Escape' && S.navOpen) { S.navOpen = false; render(true); return; } if (e.target.id === 'xd-val' && e.key === 'Enter') { e.preventDefault(); const b = document.querySelector('[data-act="xdapply"]'); if (b) b.click(); } });
   document.addEventListener('input', (e) => { if (e.target.id === 'u-name') { const pv = document.getElementById('pv-name'); if (pv) pv.textContent = e.target.value.trim() || T('[الاسم]', '[name]'); } if (e.target.id === 'f-name') { readForm(); const b = document.querySelector('[data-act="save"]'); if (b) b.disabled = !(S.form.type && S.form.name.trim() && S.form.photos.some(Boolean)); } });
   document.addEventListener('change', (e) => {
     const t = e.target;
@@ -2569,12 +2723,13 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if (t.dataset.preqimg && t.files && t.files[0]) { S.pReqImg = URL.createObjectURL(t.files[0]); const el = document.getElementById('pr-ph'); if (el) el.textContent = T('أُرفقت صورة ✓', 'Photo attached ✓'); return; }
     if (t.dataset.tstat) { const tk = S.tickets.find((x) => x.id === t.dataset.tstat); tk.st = t.value; S.aToast = T('حالة طلب ', 'Request ') + tk.id.toUpperCase() + T(': ', ': ') + T(t.value, TKST[t.value][1]) + T('، ووصل العميل إشعار على واتساب.', '; the client got a WhatsApp notice.'); return render(true); }
     if (t.dataset.sscope) { S.stmtScope = t.dataset.sscope; return render(true); }
+    if (t.dataset.uerole) { readUE(); const r = t.dataset.uerole; S.ue.roles = t.checked ? S.ue.roles.concat(r) : S.ue.roles.filter((x) => x !== r); return render(true); }
     if (t.dataset.urole) { readInv(); const r = t.dataset.urole; S.inv.roles = t.checked ? S.inv.roles.concat(r) : S.inv.roles.filter((x) => x !== r); return render(true); }
     if (t.dataset.cjob) { readCInv(); const id = t.dataset.cjob; S.cinv.jobs = t.checked ? S.cinv.jobs.concat(id) : S.cinv.jobs.filter((x) => x !== id); return render(true); }
     if (t.dataset.cacc) { readCInv(); S.cinv.acc = t.dataset.cacc; return render(true); }
     if (t.id === 'ci-name') { readCInv(); return render(true); }
-    if (t.dataset.qowner) { const q = S.quotes.find((x) => x.id === t.dataset.qowner); q.owner = t.value; S.aToast = t.value ? T('أُسند طلب ', 'Request from ') + L(q.name) + T(' إلى ', ' assigned to ') + STF(t.value) + T('، ووصله إشعار على واتساب.', '; they got a WhatsApp alert.') : T('أُلغي إسناد الطلب.', 'Request unassigned.'); return render(true); }
-    if (t.dataset.qstat) { const q = S.quotes.find((x) => x.id === t.dataset.qstat); q.status = t.value; S.aToast = T('حالة طلب ', 'Request from ') + L(q.name) + T(': ', ': ') + T(t.value, QST.find((x) => x[0] === t.value)[1]) + (t.value === 'تعاقد' && has('portal') ? T('. حوّله الآن لعميل ومشروع.', '. Turn it into a client and job now.') : '.'); return render(true); }
+    if (t.dataset.qowner) { const q = S.quotes.find((x) => x.id === t.dataset.qowner); const prevO = q.owner; qLog(q); q.owner = t.value; if (t.value) { q.log.push({ t: ['الآن', 'Just now'], who: ME, ic: 'users', tone: 'b', a: [(prevO ? 'أعاد إسناد الطلب من ' + prevO + ' إلى ' : 'أسند الطلب إلى ') + t.value, (prevO ? 'Reassigned from ' + STF(prevO) + ' to ' : 'Assigned to ') + STF(t.value)] }); q.log.push({ t: ['الآن', 'Just now'], sys: true, ic: 'phone', tone: 'g', a: ['وصل ' + t.value + ' إشعار واتساب بالطلب', STF(t.value) + ' got a WhatsApp alert'] }); } else q.log.push({ t: ['الآن', 'Just now'], who: ME, ic: 'alert', tone: 'r', a: ['ألغى إسناد الطلب من ' + prevO, 'Unassigned from ' + STF(prevO)] }); S.aToast = t.value ? T('أُسند طلب ', 'Request from ') + L(q.name) + T(' إلى ', ' assigned to ') + STF(t.value) + T('، ووصله إشعار على واتساب.', '; they got a WhatsApp alert.') : T('أُلغي إسناد الطلب.', 'Request unassigned.'); return render(true); }
+    if (t.dataset.qstat) { const q = S.quotes.find((x) => x.id === t.dataset.qstat); qLog(q); q.status = t.value; q.log.push({ t: ['الآن', 'Just now'], who: ME, ic: 'doc', tone: QST.find((x) => x[0] === t.value)[2], a: ['غيّر الحالة إلى «' + t.value + '»', 'Changed status to «' + QST.find((x) => x[0] === t.value)[1] + '»'] }); S.aToast = T('حالة طلب ', 'Request from ') + L(q.name) + T(': ', ': ') + T(t.value, QST.find((x) => x[0] === t.value)[1]) + (t.value === 'تعاقد' && has('portal') ? T('. حوّله الآن لعميل ومشروع.', '. Turn it into a client and job now.') : '.'); return render(true); }
     if (t.dataset.rep) { const q = S.queue.find((x) => x.id === t.dataset.rep); q.rep = t.value; return render(true); }
   });
   document.addEventListener('submit', (e) => {
@@ -2585,7 +2740,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     const errs = { name: name ? '' : T('اكتب اسمك.', 'Enter your name.'), phone: /^(05\d{8}|(\+?966)5\d{8})$/.test(phone) ? '' : T('رقم جوال سعودي يبدأ بـ 05 من ١٠ أرقام.', 'A Saudi mobile number starting with 05, 10 digits.') };
     ['name', 'phone'].forEach((k) => { g('q-' + k).setAttribute('aria-invalid', errs[k] ? 'true' : 'false'); g('e-' + k).textContent = errs[k]; });
     if (errs.name || errs.phone) { g(errs.name ? 'q-name' : 'q-phone').focus(); return; }
-    if (has('quotes')) { S.quotes.unshift({ id: 'r' + (S.nextId++), name: [name, name], phone: phone, svc: g('q-svc').value, city: g('q-city').value || '—', when: ['الآن', 'Just now'], age: 0, status: 'جديد', owner: '' }); toast(T('وصل الطلب إلى «طلبات عروض الأسعار» في لوحة التحكم، ومعه إشعار واتساب.', 'The request reached «Quote requests» in the dashboard, with a WhatsApp alert.')); }
+    if (has('quotes')) { S.quotes.unshift({ id: 'r' + (S.nextId++), name: [name, name], phone: phone, svc: g('q-svc').value, city: g('q-city').value || '—', when: ['الآن', 'Just now'], age: 0, status: 'جديد', owner: '', det: g('q-det').value.trim() }); toast(T('وصل الطلب إلى «طلبات عروض الأسعار» في لوحة التحكم، ومعه إشعار واتساب.', 'The request reached «Quote requests» in the dashboard, with a WhatsApp alert.')); }
     else toast(T('وصل الطلب إلى واتساب المصنع وبريده.', 'The request was sent to the factory WhatsApp and email.'));
     S.qSent = true; render(true);
   });
@@ -2593,3 +2748,5 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   render();
 })();
 </script>
+
+</body></html>
