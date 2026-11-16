@@ -1626,7 +1626,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   function renderBar() {
     document.documentElement.lang = S.lang; document.documentElement.dir = en() ? 'ltr' : 'rtl';
     document.documentElement.style.direction = en() ? 'ltr' : 'rtl';
-    document.title = T('منصة ميجا ميتال', 'Mega Metal Platform');
+    document.title = T('منصة ميجا ميتال', 'Mega Metal Platform') + (S.tab === 'new' ? T(' - جديد', ' - New') : '');
     const tabs = document.getElementById('tabSeg');
     tabs.setAttribute('aria-label', T('أقسام العرض', 'Sections'));
     tabs.innerHTML = [['new', T('الموقع الجديد', 'New website') + '<span class="tnew">' + T('جديد', 'New') + '</span>'], ['pkgs', T('الباقات', 'Plans')], ['site', T('الموقع', 'Website')], ['app', T('تطبيق الجوال', 'Mobile app')]].map(([k, l]) => '<button type="button" data-act="tab" data-v="' + k + '" aria-pressed="' + (S.tab === k) + '">' + l + '</button>').join('');
