@@ -1143,6 +1143,219 @@ html.lenis, html.lenis body { height: auto; }
 .ht-top strong { font-size: 14.5px; }
 .ht-d { background: #F5F8FC; border-radius: 10px; padding: 8px 10px; font-size: 13.5px; margin-top: 4px; }
 .pill:disabled { opacity: .45; cursor: not-allowed; }
+/* ===== New website (UI/UX Pro Max review, Nov 2026): Swiss industrial — graphite, brand blue CTA, safety-orange markers only ===== */
+.nw { --g9:#0B1220; --g8:#111827; --g7:#1F2937; --g6:#334155; --g5:#4B5A6E; --g2:#E2E8F0; --g1:#F4F6F9; --nb:#1E5BB8; --nb-h:#174A97; --nb-s:#E8F0FB; --or:#C2410C; --wa2:#15803D;
+  background:#fff; color:var(--g8); font-size:16px; line-height:1.7; }
+.nw *, .nw *::before, .nw *::after { box-sizing:border-box; }
+.nw h1, .nw h2, .nw h3 { color:inherit; letter-spacing:0; }
+.nw a { color:inherit; text-decoration:none; }
+.nw img { display:block; max-width:100%; }
+.nw .nc { max-width:1200px; margin:0 auto; padding-inline:max(20px, env(safe-area-inset-left,0px)); }
+.nw .nsec { padding-block:clamp(56px, 8vw, 96px); }
+.nw .nsec + .nsec.nline { border-top:1px solid var(--g2); }
+.nw .ndark { background:var(--g9); color:#fff; }
+.nw .nsoft { background:var(--g1); }
+/* section head */
+.nw .nhd { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px; margin-bottom:32px; }
+.nw .nhd > div { display:flex; flex-direction:column; gap:8px; max-width:720px; }
+.nw .nkick { display:inline-flex; align-items:center; gap:10px; font-size:14px; font-weight:600; color:var(--nb); }
+.nw .nkick::before { content:""; width:20px; height:3px; background:var(--or); }
+.nw .ndark .nkick { color:#9CC3FF; }
+.nw .nh2 { font-size:clamp(26px, 3.4vw, 38px); line-height:1.25; font-weight:700; }
+.nw .nlead { color:var(--g5); font-size:17px; }
+.nw .ndark .nlead { color:#CBD5E1; }
+/* buttons */
+.nw .nbtn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:12px 22px; border-radius:4px; font-weight:700; font-size:16px; border:1.5px solid transparent; cursor:pointer; transition:background-color .2s, border-color .2s, color .2s; }
+.nw .nbtn.pri { background:var(--nb); color:#fff; }
+.nw .nbtn.pri:hover { background:var(--nb-h); }
+.nw .nbtn.sec { background:transparent; color:var(--g8); border-color:#94A3B8; }
+.nw .nbtn.sec:hover { border-color:var(--g8); }
+.nw .ndark .nbtn.sec, .nw .nhero .nbtn.sec { color:#fff; border-color:rgba(255,255,255,.55); }
+.nw .ndark .nbtn.sec:hover, .nw .nhero .nbtn.sec:hover { border-color:#fff; background:rgba(255,255,255,.08); }
+.nw .nbtn.wa { background:var(--wa2); color:#fff; }
+.nw .nbtn.wa:hover { background:#116A33; }
+.nw .nlink { display:inline-flex; align-items:center; gap:6px; min-height:44px; font-weight:700; color:var(--nb); }
+.nw .nlink:hover { text-decoration:underline; text-underline-offset:4px; }
+.nw .ndark .nlink { color:#9CC3FF; }
+.nw button { font:inherit; }
+.nw :focus-visible { outline:3px solid #2F7BEA; outline-offset:2px; }
+/* header */
+.nw .nhdr { position:sticky; top:var(--barH,0px); z-index:7; background:#fff; border-bottom:1px solid var(--g2); }
+.nw .nhdr .nc { display:flex; align-items:center; gap:20px; min-height:72px; }
+.nw .nlogo { display:flex; align-items:center; min-height:44px; }
+.nw .nlogo img { height:48px; width:auto; }
+.nw .nnav { display:flex; align-items:center; gap:4px; margin-inline-start:auto; }
+.nw .nnav a, .nw .nnav .nnavb { background:none; border-top:0; border-inline:0; cursor:pointer; font:inherit; display:inline-flex; align-items:center; min-height:44px; padding:0 12px; font-weight:500; color:var(--g6); border-bottom:2px solid transparent; }
+.nw .nnav a:hover, .nw .nnav .nnavb:hover { color:var(--g8); }
+.nw .nnav a[aria-current="page"] { color:var(--g8); font-weight:700; border-bottom-color:var(--or); }
+.nw .nhacts { display:flex; align-items:center; gap:10px; }
+.nw .nlang { min-height:44px; min-width:44px; padding:0 12px; border:1px solid var(--g2); background:#fff; border-radius:4px; font-weight:700; color:var(--g6); cursor:pointer; }
+.nw .nburger { display:none; min-height:44px; min-width:44px; border:1px solid var(--g2); background:#fff; border-radius:4px; align-items:center; justify-content:center; color:var(--g8); cursor:pointer; margin-inline-start:auto; }
+.nw .nmm { border-top:1px solid var(--g2); background:#fff; }
+.nw .nmm a, .nw .nmm button.nmi { display:flex; align-items:center; width:100%; min-height:52px; padding:0 20px; border:0; border-bottom:1px solid var(--g2); background:none; font-weight:600; color:var(--g8); text-align:start; cursor:pointer; }
+.nw .nmm a[aria-current="page"] { color:var(--nb); }
+.nw .nmm .nmrow { display:flex; gap:10px; padding:14px 20px; }
+/* hero */
+.nw .nhero { position:relative; color:#fff; background:var(--g9); overflow:hidden; }
+.nw .nhero > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.nw .nhero::after { content:""; position:absolute; inset:0; background:linear-gradient(to left, rgba(11,18,32,.94) 0%, rgba(11,18,32,.86) 42%, rgba(11,18,32,.55) 75%, rgba(11,18,32,.35) 100%); }
+[dir="ltr"] .nw .nhero::after { background:linear-gradient(to right, rgba(11,18,32,.94) 0%, rgba(11,18,32,.86) 42%, rgba(11,18,32,.55) 75%, rgba(11,18,32,.35) 100%); }
+.nw .nhero .nc { position:relative; z-index:1; padding-block:clamp(72px, 12vw, 140px) clamp(64px, 9vw, 112px); display:flex; flex-direction:column; gap:20px; align-items:flex-start; }
+.nw .nhero .ntag { display:inline-flex; align-items:center; gap:10px; font-size:14px; font-weight:600; color:#E2E8F0; border-inline-start:3px solid var(--or); padding-inline-start:10px; }
+.nw .nhero h1 { font-size:clamp(38px, 6.4vw, 72px); line-height:1.15; font-weight:700; max-width:14ch; }
+.nw .nhero h1 span { color:#9CC3FF; }
+.nw .nhero p { font-size:clamp(17px, 2vw, 20px); color:#E2E8F0; max-width:560px; }
+.nw .nhero .nrow { display:flex; flex-wrap:wrap; gap:12px; margin-top:4px; }
+/* facts strip */
+.nw .nfacts { background:var(--g8); color:#fff; }
+.nw .nfacts .nc { display:grid; grid-template-columns:repeat(4, 1fr); }
+.nw .nfacts .nc > div { padding:26px 20px; display:flex; flex-direction:column; gap:2px; border-inline-start:1px solid #334155; }
+.nw .nfacts .nc > div:first-child { border-inline-start:0; padding-inline-start:0; }
+.nw .nfacts strong { font-size:clamp(28px, 3.4vw, 40px); line-height:1.2; font-weight:700; font-variant-numeric:tabular-nums; }
+.nw .nfacts span { color:#CBD5E1; font-size:15px; }
+/* cards */
+.nw .ngrid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px; }
+.nw .ncard { display:flex; flex-direction:column; background:#fff; border:1px solid var(--g2); border-radius:4px; overflow:hidden; transition:border-color .2s, box-shadow .2s; cursor:pointer; height:100%; }
+.nw .ncard:hover { border-color:#94A3B8; box-shadow:0 8px 24px rgba(15,23,42,.08); }
+.nw .nimg { position:relative; aspect-ratio:4 / 3; background:var(--g1); overflow:hidden; }
+.nw .nimg img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+.nw .ncard:hover .nimg img { transform:scale(1.03); }
+.nw .nbody { display:flex; flex-direction:column; gap:6px; padding:18px 20px 20px; flex:1; }
+.nw .nbody h3 { font-size:19px; line-height:1.35; font-weight:700; }
+.nw .nbody p { color:var(--g5); font-size:15.5px; }
+.nw .nbody .nlink { margin-top:auto; padding-top:6px; }
+.nw .nmeta { display:flex; flex-wrap:wrap; gap:4px 12px; font-size:14px; color:var(--g5); }
+.nw .nbadge { position:absolute; top:12px; inset-inline-start:12px; background:#fff; color:var(--g8); font-size:13px; font-weight:700; padding:4px 10px; border-radius:3px; }
+.nw .nbadge.f { background:var(--or); color:#fff; }
+/* filters */
+.nw .nfil { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+.nw .nfil button { min-height:44px; padding:0 16px; border:1px solid var(--g2); background:#fff; border-radius:4px; font-weight:600; color:var(--g6); cursor:pointer; transition:background-color .2s, color .2s, border-color .2s; }
+.nw .nfil button:hover { border-color:#94A3B8; }
+.nw .nfil button[aria-pressed="true"] { background:var(--g8); border-color:var(--g8); color:#fff; }
+.nw .nempty { border:1px dashed #CBD5E1; border-radius:4px; padding:32px; text-align:center; color:var(--g5); }
+/* process */
+.nw .nsteps { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:24px; counter-reset:st; list-style:none; margin:0; padding:0; }
+.nw .nsteps li { display:flex; flex-direction:column; gap:10px; border-top:3px solid var(--g8); padding-top:16px; }
+.nw .nsteps .nno { font-size:14px; font-weight:700; color:var(--or); font-variant-numeric:tabular-nums; }
+.nw .nsteps .nimg { aspect-ratio:4 / 3; border-radius:4px; }
+.nw .nsteps strong { font-size:19px; }
+.nw .nsteps p { color:var(--g5); font-size:15.5px; }
+/* why */
+.nw .nwhy { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); border-top:1px solid #334155; }
+.nw .nwhy div { padding:28px 24px 8px 0; display:flex; flex-direction:column; gap:10px; border-inline-start:1px solid #334155; padding-inline:24px; }
+.nw .nwhy div:first-child { border-inline-start:0; padding-inline-start:0; }
+.nw .nwhy svg { color:#9CC3FF; }
+.nw .nwhy strong { font-size:19px; }
+.nw .nwhy p { color:#CBD5E1; font-size:15.5px; }
+/* clients */
+.nw .nclients { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); border:1px solid var(--g2); border-radius:4px; background:#fff; }
+.nw .nclients div { min-height:96px; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; font-weight:700; color:var(--g6); border-inline-start:1px solid var(--g2); }
+.nw .nclients div:first-child { border-inline-start:0; }
+/* track */
+.nw .ntrack { display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center; border:1px solid var(--g2); border-radius:4px; padding:clamp(24px, 4vw, 44px); background:#fff; }
+.nw .ntrack ol { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+.nw .ntrack li { display:flex; align-items:center; gap:14px; min-height:52px; border-bottom:1px solid var(--g2); font-weight:600; }
+.nw .ntrack li:last-child { border-bottom:0; }
+.nw .ntrack .nd { width:30px; height:30px; flex:none; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; border:2px solid #CBD5E1; color:var(--g5); }
+.nw .ntrack .nd.done { background:var(--g8); border-color:var(--g8); color:#fff; }
+.nw .ntrack .nd.cur { border-color:var(--or); color:var(--or); }
+.nw .ntrack .nnow { color:#B4460A; font-size:14px; font-weight:700; margin-inline-start:auto; }
+/* contact */
+.nw #ncontact { scroll-margin-top:calc(var(--barH, 0px) + 72px); }
+.nw .nct { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:start; }
+.nw .nct-info { display:flex; flex-direction:column; gap:18px; }
+.nw .nct-l { display:flex; align-items:center; gap:12px; min-height:44px; color:#E2E8F0; }
+.nw .nct-l svg { color:#9CC3FF; flex:none; }
+.nw .ntbd { display:inline-block; font-size:13px; font-weight:700; color:#FED7AA; border:1px dashed #FDBA74; border-radius:3px; padding:1px 8px; }
+.nw .nfoot .ntbd { color:#FDBA74; }
+.nw .nform { background:#fff; color:var(--g8); border-radius:4px; padding:clamp(20px, 3vw, 32px); display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.nw .nform .full { grid-column:1 / -1; }
+.nw .nform h3 { font-size:22px; }
+.nw .nreq { font-size:14px; color:var(--g5); margin-top:-8px; }
+.nw .nf { display:flex; flex-direction:column; gap:6px; font-weight:600; font-size:15px; }
+.nw .nf input, .nw .nf select, .nw .nf textarea { min-height:48px; padding:10px 12px; border:1.5px solid #94A3B8; border-radius:4px; background:#fff; color:var(--g8); font-weight:400; font-size:16px; }
+.nw .nf textarea { min-height:104px; resize:vertical; }
+.nw .nf input:focus, .nw .nf select:focus, .nw .nf textarea:focus { border-color:var(--nb); outline:3px solid rgba(30,91,184,.25); outline-offset:0; }
+.nw .nf [aria-invalid="true"] { border-color:#B42318; }
+.nw .nhelp { font-size:13.5px; font-weight:400; color:var(--g5); }
+.nw .ferr { font-size:13.5px; font-weight:600; color:#B42318; min-height:0; }
+.nw .ferr:empty { display:none; }
+.nw .nsent { grid-column:1 / -1; display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.nw .nsent svg { color:var(--wa2); }
+/* inner page heads */
+.nw .nph { background:var(--g9); color:#fff; }
+.nw .nph .nc { padding-block:40px 44px; display:flex; flex-direction:column; gap:12px; }
+.nw .nph h1 { font-size:clamp(30px, 4.6vw, 48px); line-height:1.2; }
+.nw .nph p { color:#CBD5E1; font-size:17px; max-width:640px; }
+.nw .ncrumb { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; font-size:14px; color:#CBD5E1; }
+.nw .ncrumb a { display:inline-flex; align-items:center; min-height:44px; color:#E2E8F0; text-decoration:underline; text-underline-offset:3px; }
+.nw .nph.img { position:relative; overflow:hidden; }
+.nw .nph.img > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.nw .nph.img::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(11,18,32,.95) 0%, rgba(11,18,32,.8) 55%, rgba(11,18,32,.6) 100%); }
+.nw .nph.img .nc { position:relative; z-index:1; padding-block:120px 44px; }
+.nw .nfactsrow { display:grid; grid-template-columns:repeat(4, 1fr); border-bottom:1px solid var(--g2); }
+.nw .nfactsrow div { padding:18px 20px; border-inline-start:1px solid var(--g2); display:flex; flex-direction:column; }
+.nw .nfactsrow div:first-child { border-inline-start:0; padding-inline-start:0; }
+.nw .nfactsrow span { font-size:14px; color:var(--g5); }
+.nw .nfactsrow strong { font-size:17px; }
+.nw .ngal { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; }
+.nw .ngal figure { margin:0; border-radius:4px; overflow:hidden; border:1px solid var(--g2); }
+.nw .ngal .nimg { aspect-ratio:4 / 5; }
+.nw .ngal figcaption { padding:10px 14px; font-size:14px; font-weight:600; display:flex; align-items:center; gap:8px; }
+.nw .ngal figcaption i { width:10px; height:10px; border-radius:2px; background:var(--g6); }
+.nw .ncta { background:var(--g8); color:#fff; }
+.nw .ncta .nc { padding-block:40px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 32px; }
+.nw .ncta h2 { font-size:clamp(22px, 2.6vw, 28px); }
+/* footer */
+.nw .nfoot { background:var(--g9); color:#CBD5E1; border-top:1px solid #1F2937; }
+.nw .nfoot .nc.top { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; padding-block:48px 24px; }
+.nw .nfoot h4 { color:#fff; font-size:16px; margin:0 0 6px; }
+.nw .nfoot a, .nw .nfoot button.nfb { display:flex; align-items:center; min-height:44px; color:#CBD5E1; background:none; border:0; padding:0; text-align:start; cursor:pointer; font-size:15px; }
+.nw .nfoot a:hover, .nw .nfoot button.nfb:hover { color:#fff; }
+.nw .nfoot .nplate { background:#fff; border-radius:4px; padding:8px 12px; display:inline-flex; align-self:flex-start; }
+.nw .nfoot .nplate img { height:44px; width:auto; }
+.nw .nfoot .nc.base { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px; padding-block:18px; border-top:1px solid #1F2937; font-size:14px; }
+/* mobile bottom bar */
+.nw .nmbar { display:none; }
+/* reveal (cards only; headings and text are never hidden) */
+.nw .pre { opacity:0; transform:translateY(10px); }
+.nw .rvin { opacity:1; transform:none; transition:opacity .45s ease, transform .45s ease; }
+@media (prefers-reduced-motion: reduce) { .nw .pre { opacity:1; transform:none; } .nw * { transition:none !important; } }
+@media (max-width: 1000px) {
+  .nw .nnav, .nw .nhacts .nhide { display:none; }
+  .nw .nburger { display:inline-flex; }
+  .nw .ngrid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .nw .nsteps, .nw .nwhy { grid-template-columns:repeat(2, minmax(0, 1fr)); row-gap:32px; }
+  .nw .nwhy div:nth-child(3) { border-inline-start:0; padding-inline-start:0; }
+  .nw .nct, .nw .ntrack { grid-template-columns:1fr; }
+  .nw .ngal { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .nw { padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .nw .nhdr .nc { min-height:64px; }
+  .nw .nlogo img { height:42px; }
+  .nw .nhacts .pri { display:none; }
+  .nw .nfacts .nc { grid-template-columns:repeat(2, 1fr); }
+  .nw .nfacts .nc > div { padding:20px 0; border-inline-start:0; border-top:1px solid #334155; }
+  .nw .nfacts .nc > div:nth-child(-n+2) { border-top:0; }
+  .nw .nfacts .nc > div:nth-child(even) { padding-inline-start:20px; border-inline-start:1px solid #334155; }
+  .nw .ngrid, .nw .nsteps, .nw .nwhy { grid-template-columns:1fr; }
+  .nw .nwhy div { border-inline-start:0; padding-inline:0; border-bottom:1px solid #334155; padding-bottom:24px; }
+  .nw .nclients { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  .nw .nclients div:nth-child(3) { border-inline-start:0; }
+  .nw .nclients div:nth-child(n+3) { border-top:1px solid var(--g2); }
+  .nw .nform { grid-template-columns:1fr; }
+  .nw .nfactsrow { grid-template-columns:repeat(2, 1fr); }
+  .nw .nfactsrow div:nth-child(3) { border-inline-start:0; padding-inline-start:0; }
+  .nw .nfactsrow div:nth-child(n+3) { border-top:1px solid var(--g2); }
+  .nw .nfoot .nc.top { grid-template-columns:1fr; }
+  .nw .nhero .nrow .nbtn { flex:1 1 auto; }
+  .nw .nmbar { display:flex; gap:10px; position:fixed; z-index:8; inset-inline:0; bottom:0; padding:10px max(12px, env(safe-area-inset-left, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)); background:#fff; border-top:1px solid var(--g2); }
+  .nw .nmbar .nbtn { flex:1; }
+}
+/* top-bar tab marker */
+.seg.tabs button .tnew { display:inline-block; margin-inline-start:6px; font-size:11px; font-weight:700; background:#EA580C; color:#fff; border-radius:3px; padding:0 5px; line-height:18px; vertical-align:1px; }
+.nw .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 </style>
 
 
@@ -1416,11 +1629,11 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     document.title = T('منصة ميجا ميتال', 'Mega Metal Platform');
     const tabs = document.getElementById('tabSeg');
     tabs.setAttribute('aria-label', T('أقسام العرض', 'Sections'));
-    tabs.innerHTML = [['pkgs', T('الباقات', 'Plans')], ['site', T('الموقع', 'Website')], ['app', T('تطبيق الجوال', 'Mobile app')]].map(([k, l]) => '<button type="button" data-act="tab" data-v="' + k + '" aria-pressed="' + (S.tab === k) + '">' + l + '</button>').join('');
+    tabs.innerHTML = [['new', T('الموقع الجديد', 'New website') + '<span class="tnew">' + T('جديد', 'New') + '</span>'], ['pkgs', T('الباقات', 'Plans')], ['site', T('الموقع', 'Website')], ['app', T('تطبيق الجوال', 'Mobile app')]].map(([k, l]) => '<button type="button" data-act="tab" data-v="' + k + '" aria-pressed="' + (S.tab === k) + '">' + l + '</button>').join('');
     const lang = document.getElementById('langSeg');
     lang.setAttribute('aria-label', T('اللغة', 'Language'));
     lang.innerHTML = '<button type="button" data-act="lang" data-v="ar" lang="ar" aria-pressed="' + !en() + '">عربي</button><button type="button" data-act="lang" data-v="en" lang="en" aria-pressed="' + en() + '">English</button>';
-    document.getElementById('ctlRow').hidden = S.tab !== 'site';
+    document.getElementById('ctlRow').hidden = S.tab !== 'site' && S.tab !== 'new';
     const pr = document.getElementById('priceRow'); pr.hidden = S.tab !== 'pkgs';
     if (S.tab === 'pkgs') {
       const xdOn = S.xd.val > 0;
@@ -1428,7 +1641,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
         '<div class="seg" role="group" aria-label="' + T('الأسعار', 'Prices') + '"><button type="button" class="eyebtn" data-act="sprice" aria-pressed="' + S.showPrice + '" aria-label="' + (S.showPrice ? T('إخفاء الأسعار', 'Hide prices') : T('إظهار الأسعار', 'Show prices')) + '" title="' + (S.showPrice ? T('إخفاء الأسعار', 'Hide prices') : T('إظهار الأسعار', 'Show prices')) + '">' + ic(S.showPrice ? 'eye' : 'eyeoff', 20) + '</button><button type="button" data-act="xdtoggle" aria-pressed="' + (S.xdOpen || xdOn) + '">' + T('تخفيض إضافي', 'Extra discount') + (xdOn ? ': ' + (S.xd.type === 'pct' ? PCT(S.xd.val) : SAR(S.xd.val)) : '') + '</button></div>' +
         (S.xdOpen ? '<div class="xd"><div class="seg" role="group" aria-label="' + T('نوع التخفيض', 'Discount type') + '"><button type="button" data-act="xdtype" data-v="pct" aria-pressed="' + (S.xd.type === 'pct') + '">' + T('نسبة ٪', 'Percent %') + '</button><button type="button" data-act="xdtype" data-v="amt" aria-pressed="' + (S.xd.type === 'amt') + '">' + T('مبلغ (ريال)', 'Amount (SAR)') + '</button></div><input id="xd-val" type="number" min="0" inputmode="numeric" class="xd-in" value="' + (S.xd.val || '') + '" placeholder="' + (S.xd.type === 'pct' ? '10' : '1000') + '" aria-label="' + T('قيمة التخفيض', 'Discount value') + '"><button type="button" class="btn primary sm" data-act="xdapply">' + T('تطبيق', 'Apply') + '</button>' + (xdOn ? '<button type="button" class="btn sm xd-clear" data-act="xdclear">' + T('إزالة', 'Remove') + '</button>' : '') + '<span class="bar-label">' + T('يُطبّق على سعر التنفيذ، والاشتراك الشهري كما هو.', 'Applies to the one-time price; the monthly fee stays.') + '</span></div>' : '');
     } else pr.innerHTML = '';
-    document.getElementById('chips').hidden = S.tab !== 'site';
+    document.getElementById('chips').hidden = S.tab !== 'site' && S.tab !== 'new';
     document.getElementById('pkgLbl').textContent = T('الباقة', 'Plan');
     document.getElementById('viewLbl').textContent = T('الواجهة', 'View');
     document.getElementById('addonTxt').textContent = T('إضافة: فرص ميدانية', 'Add-on: Field leads');
@@ -1442,7 +1655,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     const ch = document.getElementById('chips'); ch.setAttribute('aria-label', T('مزايا الباقة', 'Plan features'));
     ch.innerHTML = FEATURES.map((f) => { const on = has(f.k); return '<span class="chip ' + (on ? 'on' : 'off') + '">' + (on ? '✓ ' : '') + esc(L(f.name)) + (f.addon ? T(' (إضافة)', ' (add-on)') : '') + '</span>'; }).join('');
     ch.classList.toggle('open', !!S.chipsOpen);
-    const tg = document.getElementById('chipsTg'); tg.hidden = S.tab !== 'site'; tg.setAttribute('aria-expanded', !!S.chipsOpen);
+    const tg = document.getElementById('chipsTg'); tg.hidden = S.tab !== 'site' && S.tab !== 'new'; tg.setAttribute('aria-expanded', !!S.chipsOpen);
     tg.textContent = T('مزايا الباقة ', 'Plan features ') + '(' + N(FEATURES.filter((f) => has(f.k)).length) + '/' + N(FEATURES.length) + ') ' + (S.chipsOpen ? '▴' : '▾');
   }
 
@@ -1601,6 +1814,165 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if (S.route === 'services' || S.route === 'projects') return siteList(S.route);
     return siteHome();
   }
+
+  /* ---------- New website (UI/UX Pro Max review): hash-routed, no motion libraries ---------- */
+  const NDIM = {"alu-arch":[622,760],"alu-column":[622,760],"alu-corner":[622,760],"alu-entrance":[622,760],"alu-site":[622,760],"avenues":[760,626],"door-cnc":[622,760],"door-gate":[622,760],"door-wood-gate":[760,510],"golf-ceiling":[622,760],"golf-frames":[622,760],"golf-install":[622,760],"golf-night":[1060,590],"golf-paint":[622,760],"golf-workshop":[622,760],"ir-1":[622,760],"ir-2":[622,760],"ir-3":[622,760],"perg-install":[622,760],"perg-site":[622,760],"perg-under":[622,760],"reef":[760,626],"ss-1":[622,760],"ss-2":[622,760],"ss-3":[622,760],"wood-1":[622,760],"wood-2":[622,760],"zadna":[760,626],"logo":[420,403]};
+  const IW = (k) => (k && k.startsWith('blob:')) ? k : 'img/w/' + k + '.webp';
+  const nImg = (k, alt, eager) => { const d = NDIM[k] || [800, 600]; return '<img src="' + esc(IW(k)) + '" alt="' + esc(alt || '') + '" width="' + d[0] + '" height="' + d[1] + '"' + (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">'; };
+  const NSVG = (d, s) => '<svg width="' + (s || 20) + '" height="' + (s || 20) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
+  const NARR = '<svg class="flip" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>';
+  const TBD = () => '<span class="ntbd">' + T('يُستكمل', 'To be added') + '</span>';
+  function nParse(h) {
+    h = String(h || '').replace(/^#/, '');
+    if (h !== 'new' && h.indexOf('new-') !== 0) return null;
+    if (h === 'new') return { pg: 'home' };
+    const r = h.slice(4);
+    if (r === 'services' || r === 'projects' || r === 'contact') return { pg: r };
+    if (r.indexOf('s-') === 0 && SERVICES.some((s) => s.id === r.slice(2))) return { pg: 'service', id: r.slice(2) };
+    if (r.indexOf('p-') === 0 && S.projects.some((p) => p.id === r.slice(2))) return { pg: 'project', id: r.slice(2) };
+    return { pg: 'home' };
+  }
+  const nCur = (k) => { const pg = (S.nr || {}).pg || 'home'; return pg === k || (k === 'services' && pg === 'service') || (k === 'projects' && pg === 'project'); };
+  const NNAV = () => [['new', 'home', T('الرئيسية', 'Home')], ['new-services', 'services', T('خدماتنا', 'Services')], ['new-projects', 'projects', T('مشاريعنا', 'Projects')], ['new-contact', 'contact', T('تواصل معنا', 'Contact')]];
+  function nHeader() {
+    const langBtn = S.pkg >= 2 ? '<button type="button" class="nlang" data-act="lang" data-v="' + (en() ? 'ar' : 'en') + '" lang="' + (en() ? 'ar' : 'en') + '" aria-label="' + (en() ? 'التحويل إلى العربية' : 'Switch to English') + '">' + (en() ? 'عربي' : 'EN') + '</button>' : '';
+    const track = has('portal') ? '<button type="button" class="nmi" data-act="view" data-v="portal">' + T('تابع مشروعك', 'Track your project') + '</button>' : '';
+    const nav = NNAV().map(([h, k, l]) => '<a href="#' + h + '"' + (nCur(k) ? ' aria-current="page"' : '') + '>' + l + '</a>').join('') + (has('portal') ? '<button type="button" class="nnavb" data-act="view" data-v="portal">' + T('تابع مشروعك', 'Track your project') + '</button>' : '');
+    const menu = S.nmenu ? '<div class="nmm" id="nmm">' + NNAV().map(([h, k, l]) => '<a href="#' + h + '"' + (nCur(k) ? ' aria-current="page"' : '') + '>' + l + '</a>').join('') + track + '<div class="nmrow">' + langBtn + '<a class="nbtn pri" style="flex:1" href="#new-contact">' + T('اطلب عرض سعر', 'Request a quote') + '</a></div></div>' : '';
+    return '<header class="nhdr"><div class="nc"><a class="nlogo" href="#new" aria-label="' + T('ميجا ميتال — الرئيسية', 'Mega Metal — Home') + '"><img src="' + IW('logo') + '" alt="' + T('شعار ميجا ميتال', 'Mega Metal logo') + '" width="420" height="403"></a>' +
+      '<nav class="nnav" aria-label="' + T('القائمة الرئيسية', 'Main menu') + '">' + nav + '</nav>' +
+      '<div class="nhacts"><span class="nhide">' + langBtn + '</span><a class="nbtn pri" href="#new-contact">' + T('اطلب عرض سعر', 'Request a quote') + '</a></div>' +
+      '<button type="button" class="nburger" data-act="nmenu" aria-expanded="' + !!S.nmenu + '" aria-controls="nmm" aria-label="' + T('القائمة', 'Menu') + '">' + (S.nmenu ? ICO.close : ICO.menu) + '</button></div>' + menu + '</header>';
+  }
+  function nFooter() {
+    return '<footer class="nfoot"><div class="nc top"><div style="display:flex;flex-direction:column;gap:14px"><span class="nplate"><img src="' + IW('logo') + '" alt="' + T('شعار ميجا ميتال', 'Mega Metal logo') + '" width="420" height="403" loading="lazy"></span><p>' + T('مصنع أعمال حديد وألمنيوم في الرياض: نصمّم ونصنّع ونركّب من المخطط إلى التسليم.', 'A steel and aluminium works in Riyadh: we design, fabricate and install, from drawing to handover.') + '</p></div>' +
+      '<nav aria-label="' + T('الخدمات', 'Services') + '"><h4>' + T('خدماتنا', 'Services') + '</h4>' + SERVICES.map((s) => '<a href="#new-s-' + s.id + '">' + L(s.name) + '</a>').join('') + '</nav>' +
+      '<nav aria-label="' + T('روابط', 'Links') + '"><h4>' + T('روابط', 'Links') + '</h4>' + NNAV().map(([h, k, l]) => '<a href="#' + h + '">' + l + '</a>').join('') + '<button type="button" class="nfb" data-act="noop">' + T('تحميل البروفايل (PDF)', 'Download profile (PDF)') + '</button></nav></div>' +
+      '<div class="nc base"><span>' + T('© مصنع ميجا ميتال لأعمال الحديد', '© Mega Metal Steel Works') + ' · ' + T('السجل التجاري', 'CR') + ' ' + TBD() + ' · ' + T('الرقم الضريبي', 'VAT') + ' ' + TBD() + '</span><span>' + T('أبواب · مظلات · واجهات · درابزين · سواتر', 'Doors · Shades · Facades · Handrails · Screens') + '</span></div></footer>' +
+      '<div class="nmbar"><button type="button" class="nbtn sec" data-act="noop">' + WA + T(' واتساب', ' WhatsApp') + '</button><a class="nbtn pri" href="#new-contact">' + T('اطلب عرض سعر', 'Get a quote') + '</a></div>';
+  }
+  const nAlt = (p) => L(p.name) + ' — ' + svcName(p.type);
+  const nProjCard = (p) => '<a class="ncard rv3" href="#new-p-' + p.id + '"><span class="nimg">' + nImg(coverOf(p), nAlt(p)) + '' + '</span><span class="nbody"><h3>' + esc(L(p.name)) + '</h3><span class="nmeta"><span>' + esc(CITY(p.city)) + '</span><span>' + svcName(p.type) + '</span><span>' + N(photoCount(p)) + T(' صور', ' photos') + '</span></span></span></a>';
+  const nSvcCard = (s) => '<a class="ncard rv3" href="#new-s-' + s.id + '"><span class="nimg">' + nImg(s.img, L(s.name)) + '</span><span class="nbody"><h3>' + L(s.name) + '</h3><p>' + L(s.desc) + '</p><span class="nlink">' + T('شاهد الأعمال', 'See the work') + ' ' + NARR + '</span></span></a>';
+  const nHead = (kick, title, lead, more) => '<div class="nhd"><div><span class="nkick">' + kick + '</span><h2 class="nh2">' + title + '</h2>' + (lead ? '<p class="nlead">' + lead + '</p>' : '') + '</div>' + (more || '') + '</div>';
+  function nProjFilter(list) {
+    const types = SERVICES.filter((s) => list.some((p) => p.type === s.id));
+    const f = S.nf || 'all';
+    return '<div class="nfil" role="group" aria-label="' + T('تصفية المشاريع حسب الخدمة', 'Filter projects by service') + '">' + [['all', T('الكل', 'All')]].concat(types.map((s) => [s.id, L(s.name)])).map(([k, l]) => '<button type="button" data-act="nf" data-v="' + k + '" aria-pressed="' + (f === k) + '">' + l + '</button>').join('') + '</div>';
+  }
+  function nContact() {
+    const body = S.qSent
+      ? '<div class="nsent" role="status">' + NSVG('<circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.8 2.8L16.5 9.5"></path>', 40) + '<h3>' + T('وصلنا طلبك', 'We got your request') + '</h3><p>' + T('نرجع لك بعرض السعر خلال يوم عمل، وغالبًا على واتساب.', 'We will come back with a quote within one working day, usually on WhatsApp.') + '</p><button type="button" class="nbtn sec" data-act="qagain">' + T('إرسال طلب آخر', 'Send another request') + '</button></div>'
+      : '<h3 class="full">' + T('اطلب عرض سعر', 'Request a quote') + '</h3><p class="nreq full">' + T('الحقول المعلَّمة بـ * إلزامية.', 'Fields marked * are required.') + '</p>' +
+        '<label class="nf">' + T('الاسم', 'Name') + ' *<input id="q-name" type="text" autocomplete="name" required aria-describedby="e-name"><span class="ferr" id="e-name"></span></label>' +
+        '<label class="nf">' + T('رقم الجوال', 'Mobile number') + ' *<input id="q-phone" type="tel" inputmode="tel" class="ltr-in" dir="ltr" autocomplete="tel" required aria-describedby="h-phone e-phone"><span class="nhelp" id="h-phone">' + T('جوال سعودي يبدأ بـ 05، مثل 0550001234', 'Saudi mobile starting with 05, e.g. 0550001234') + '</span><span class="ferr" id="e-phone"></span></label>' +
+        '<label class="nf">' + T('الخدمة', 'Service') + '<select id="q-svc">' + SERVICES.map((s) => '<option value="' + s.id + '"' + (S.nr && S.nr.pg === 'service' && S.nr.id === s.id ? ' selected' : '') + '>' + L(s.name) + '</option>').join('') + '</select></label>' +
+        '<label class="nf">' + T('المدينة', 'City') + '<select id="q-city"><option value="">' + T('اختر المدينة', 'Choose a city') + '</option>' + CITIES.map((c) => '<option value="' + c[0] + '">' + L(c) + '</option>').join('') + '</select></label>' +
+        '<label class="nf full">' + T('تفاصيل المشروع', 'Project details') + '<textarea id="q-det" rows="3" aria-describedby="h-det"></textarea><span class="nhelp" id="h-det">' + T('نوع العمل والمقاسات التقريبية إن وُجدت.', 'Type of work and rough sizes if you have them.') + '</span></label>' +
+        '<button type="submit" class="nbtn pri full">' + T('أرسل طلب عرض السعر', 'Send quote request') + '</button>';
+    return '<section class="nsec ndark" id="ncontact" aria-labelledby="nct-h"><div class="nc nct"><div class="nct-info"><span class="nkick">' + T('تواصل معنا', 'Contact us') + '</span><h2 class="nh2" id="nct-h">' + T('عندك مشروع؟', 'Have a project?') + '</h2><p class="nlead">' + T('أرسل نوع العمل والمدينة، ونرجع لك بعرض سعر خلال يوم عمل.', 'Send the type of work and the city, and we will come back with a quote within one working day.') + '</p>' +
+      '<span class="nct-l">' + WA + '<span>' + T('واتساب', 'WhatsApp') + ' ' + TBD() + '</span></span><span class="nct-l">' + ICO.mail + '<span>' + T('البريد', 'Email') + ' ' + TBD() + '</span></span><span class="nct-l">' + ICO.pin + '<span>' + T('عنوان المصنع وساعات العمل', 'Factory address and hours') + ' ' + TBD() + '</span></span>' +
+      '<div><button type="button" class="nbtn sec" data-act="noop">' + T('تحميل البروفايل (PDF)', 'Download profile (PDF)') + '</button></div></div>' +
+      '<form class="nform" data-form="quote" novalidate>' + body + '</form></div></section>';
+  }
+  function nHome() {
+    const stats = [[15, T('سنة خبرة', 'years of experience')], [300, T('مشروع منفّذ', 'projects delivered')], [8, T('مدن في المملكة', 'cities in Saudi Arabia')], [40, T('فنّي ومهندس', 'technicians & engineers')]];
+    const steps = [[['التصميم', 'Design'], ['مخططات تنفيذية وتفاصيل تصنيع دقيقة قبل قصّ أول قطعة.', 'Shop drawings and fabrication details before the first cut.'], 'golf-frames'], [['التصنيع', 'Fabrication'], ['قص CNC وتشكيل ولحام ودهان داخل مصنعنا.', 'CNC cutting, forming, welding and painting in our factory.'], 'golf-workshop'], [['التركيب', 'Installation'], ['فريقنا يركّب في الموقع بمعدّاته، بلا مقاول وسيط.', 'Our own crew installs on site, no subcontractor.'], 'golf-paint'], [['التسليم', 'Handover'], ['مراجعة نهائية مع العميل وتسليم موثّق بالصور.', 'Final walkthrough and a handover documented with photos.'], 'golf-night']];
+    const why = [[ICO.factory, ['مصنع، لا وسيط', 'A factory, not a middleman'], ['التصنيع داخل مصنعنا، فالجودة والتكلفة تحت سيطرتنا.', 'We fabricate in-house, so quality and cost stay in our hands.']], [ICO.layers, ['تحت سقف واحد', 'One roof'], ['التصميم والتصنيع والتركيب عند جهة واحدة مسؤولة.', 'Design, fabrication and installation by one accountable team.']], [ICO.target, ['دقة CNC', 'CNC precision'], ['قص آلي للزخارف والألواح بتطابق تام مع المخطط.', 'Machine-cut patterns and panels that match the drawing exactly.']], [ICO.clock, ['التزام بالمواعيد', 'On schedule'], ['جدول مراحل واضح من أول يوم، ومتابعة حتى التسليم.', 'A clear stage plan from day one, followed through to handover.']]];
+    const clients = [['نادي الرياض للجولف', 'Riyadh Golf Club'], ['الأفنيوز', 'The Avenues'], ['تمور زادنا', 'Zadna Dates'], ['مؤسسة ريف الأهلية', 'Reef Foundation']];
+    const f = S.nf || 'all';
+    const sorted = S.projects.slice().sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    const shown = (f === 'all' ? sorted : sorted.filter((p) => p.type === f)).slice(0, 6);
+    const track = has('portal') ? '<section class="nsec"><div class="nc"><div class="ntrack rv3"><div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span class="nkick">' + T('لعملائنا', 'For our clients') + '</span><h2 class="nh2">' + T('تابع مشروعك خطوة بخطوة', 'Follow your project step by step') + '</h2><p class="nlead">' + T('ادخل برقم جوالك المسجّل، وشوف أين وصل العمل مع صور كل مرحلة.', 'Sign in with your registered phone number and see where the work stands, with photos of every stage.') + '</p><button type="button" class="nbtn sec" data-act="view" data-v="portal">' + T('دخول بوابة العملاء', 'Open client portal') + '</button></div>' +
+      '<ol aria-label="' + T('مثال لمراحل مشروع', 'Example project stages') + '"><li><span class="nd done" aria-hidden="true">✓</span>' + T('اعتماد التصميم', 'Design approved') + '<span class="sr-only">' + T(' (مكتملة)', ' (done)') + '</span></li><li><span class="nd done" aria-hidden="true">✓</span>' + T('التصنيع في المصنع', 'Factory fabrication') + '<span class="sr-only">' + T(' (مكتملة)', ' (done)') + '</span></li><li><span class="nd cur" aria-hidden="true">' + N(3) + '</span>' + T('التركيب في الموقع', 'On-site installation') + '<span class="nnow">' + T('جارٍ الآن', 'In progress') + '</span></li><li><span class="nd" aria-hidden="true">' + N(4) + '</span>' + T('التسليم', 'Handover') + '</li></ol></div></div></section>' : '';
+    return nHeader() + '<main id="nmain">' +
+      '<section class="nhero" aria-labelledby="nh1">' + nImg('golf-night', '', true) + '<div class="nc"><span class="ntag">' + T('مصنع أعمال حديد وألمنيوم — الرياض', 'Steel & aluminium works — Riyadh') + '</span><h1 id="nh1">' + T('صلابة الحديد.. <span>بدقّة الصنعة.</span>', 'Built strong. <span>Crafted precise.</span>') + '</h1><p>' + T('نصمّم ونصنّع ونركّب: واجهات، مظلات، أبواب، درابزين وسواتر بقص CNC، من المخطط إلى التسليم.', 'We design, fabricate and install facades, shades, doors, handrails and CNC screens, from drawing to handover.') + '</p><div class="nrow"><a class="nbtn pri" href="#new-contact">' + T('اطلب عرض سعر', 'Request a quote') + '</a><a class="nbtn sec" href="#new-projects">' + T('شاهد أعمالنا', 'See our work') + '</a></div></div></section>' +
+      '<section class="nfacts" aria-label="' + T('أرقام المصنع', 'Factory figures') + '"><div class="nc">' + stats.map((s) => '<div><strong><bdi dir="ltr">+' + N(s[0]) + '</bdi></strong><span>' + s[1] + '</span></div>').join('') + '</div></section>' +
+      '<section class="nsec"><div class="nc">' + nHead(T('خدماتنا', 'Services'), T('ما نصنعه', 'What we make'), T('ست خدمات ينفّذها فريق واحد من التصميم حتى التركيب.', 'Six services delivered by one team, from design to installation.'), '<a class="nlink" href="#new-services">' + T('كل الخدمات', 'All services') + ' ' + NARR + '</a>') + '<div class="ngrid">' + SERVICES.map(nSvcCard).join('') + '</div></div></section>' +
+      '<section class="nsec nsoft"><div class="nc">' + nHead(T('أحدث أعمالنا', 'Latest work'), T('مشاريع نفّذناها', 'Projects we delivered'), '', '<a class="nlink" href="#new-projects">' + T('كل المشاريع', 'All projects') + ' ' + NARR + '</a>') + nProjFilter(S.projects) + (shown.length ? '<div class="ngrid">' + shown.map(nProjCard).join('') + '</div>' : '<p class="nempty">' + T('لا توجد مشاريع تحت هذه الخدمة بعد.', 'No projects under this service yet.') + '</p>') + '</div></section>' +
+      '<section class="nsec"><div class="nc">' + nHead(T('مصنع، وليس مقاول تركيب', 'A factory, not just an installer'), T('كل مرحلة تحت سقف واحد', 'Every stage under one roof')) + '<ol class="nsteps">' + steps.map((s, i) => '<li class="rv3"><span class="nno">' + N('0' + (i + 1)) + '</span><span class="nimg">' + nImg(s[2], L(s[0]) + ' — ' + T('صورة من مشروع نادي الرياض للجولف', 'photo from the Riyadh Golf Club project')) + '</span><strong>' + L(s[0]) + '</strong><p>' + L(s[1]) + '</p></li>').join('') + '</ol></div></section>' +
+      '<section class="nsec ndark"><div class="nc">' + nHead(T('لماذا ميجا ميتال', 'Why Mega Metal'), T('شريك تصنيع يُعتمد عليه', 'A fabrication partner you can rely on')) + '<div class="nwhy">' + why.map((w) => '<div class="rv3">' + w[0] + '<strong>' + L(w[1]) + '</strong><p>' + L(w[2]) + '</p></div>').join('') + '</div></div></section>' +
+      '<section class="nsec nsoft"><div class="nc">' + nHead(T('عملاء وثقوا بنا', 'Clients who trusted us'), T('من مشاريعنا المنفّذة', 'From our delivered projects')) + '<div class="nclients">' + clients.map((c) => '<div>' + L(c) + '</div>').join('') + '</div></div></section>' +
+      track + nContact() + '</main>' + nFooter();
+  }
+  function nServices() {
+    return nHeader() + '<main id="nmain"><section class="nph"><div class="nc"><nav class="ncrumb" aria-label="' + T('مسار الصفحة', 'Breadcrumb') + '"><a href="#new">' + T('الرئيسية', 'Home') + '</a><span aria-hidden="true">/</span><span aria-current="page">' + T('خدماتنا', 'Services') + '</span></nav><h1>' + T('خدماتنا', 'Services') + '</h1><p>' + T('نصمّم ونصنّع ونركّب كل خدمة داخل مصنعنا في الرياض.', 'We design, fabricate and install every service from our factory in Riyadh.') + '</p></div></section>' +
+      '<section class="nsec"><div class="nc"><div class="ngrid">' + SERVICES.map(nSvcCard).join('') + '</div></div></section>' + nCtaBand() + '</main>' + nFooter();
+  }
+  function nProjects() {
+    const f = S.nf || 'all'; const list = f === 'all' ? S.projects : S.projects.filter((p) => p.type === f);
+    return nHeader() + '<main id="nmain"><section class="nph"><div class="nc"><nav class="ncrumb" aria-label="' + T('مسار الصفحة', 'Breadcrumb') + '"><a href="#new">' + T('الرئيسية', 'Home') + '</a><span aria-hidden="true">/</span><span aria-current="page">' + T('مشاريعنا', 'Projects') + '</span></nav><h1>' + T('مشاريعنا', 'Projects') + '</h1><p>' + N(S.projects.length) + projWord(S.projects.length) + T(' منفّذة بصور من الموقع.', ' delivered, with photos from site.') + '</p></div></section>' +
+      '<section class="nsec"><div class="nc">' + nProjFilter(S.projects) + (list.length ? '<div class="ngrid">' + list.map(nProjCard).join('') + '</div>' : '<p class="nempty">' + T('لا توجد مشاريع تحت هذه الخدمة بعد.', 'No projects under this service yet.') + '</p>') + '</div></section>' + nCtaBand() + '</main>' + nFooter();
+  }
+  function nCtaBand() {
+    return '<section class="ncta"><div class="nc"><h2>' + T('عندك مشروع مشابه؟ نرجع لك بعرض سعر خلال يوم عمل.', 'Have a similar project? We reply with a quote within one working day.') + '</h2><a class="nbtn pri" href="#new-contact">' + T('اطلب عرض سعر', 'Request a quote') + '</a></div></section>';
+  }
+  function nService(id) {
+    const s = SERVICES.find((x) => x.id === id);
+    const all = S.projects.filter((p) => p.type === s.id);
+    const cities = ['all'].concat(Array.from(new Set(all.map((p) => p.city))));
+    const c = cities.indexOf(S.city) >= 0 ? S.city : 'all';
+    const shown = c === 'all' ? all : all.filter((p) => p.city === c);
+    return nHeader() + '<main id="nmain"><section class="nph img">' + nImg(s.img, '', true) + '<div class="nc"><nav class="ncrumb" aria-label="' + T('مسار الصفحة', 'Breadcrumb') + '"><a href="#new">' + T('الرئيسية', 'Home') + '</a><span aria-hidden="true">/</span><a href="#new-services">' + T('خدماتنا', 'Services') + '</a><span aria-hidden="true">/</span><span aria-current="page">' + L(s.name) + '</span></nav><h1>' + L(s.name) + '</h1><p>' + L(s.desc) + '</p><div><a class="nbtn pri" href="#new-contact">' + T('اطلب عرض سعر لهذه الخدمة', 'Request a quote for this service') + '</a></div></div></section>' +
+      '<section class="nsec"><div class="nc">' + nHead(T('أعمالنا في هذه الخدمة', 'Our work in this service'), T('المشاريع المنفّذة', 'Completed projects') + ' <span style="color:var(--g5);font-weight:500;font-size:.6em">(' + N(shown.length) + ')</span>') +
+      (cities.length > 2 ? '<div class="nfil" role="group" aria-label="' + T('تصفية حسب المدينة', 'Filter by city') + '">' + cities.map((x) => '<button type="button" data-act="city" data-v="' + esc(x) + '" aria-pressed="' + (c === x) + '">' + (x === 'all' ? T('كل المدن', 'All cities') : esc(CITY(x))) + '</button>').join('') + '</div>' : '') +
+      (shown.length ? '<div class="ngrid">' + shown.map(nProjCard).join('') + '</div>' : '<p class="nempty">' + T('لا توجد مشاريع منشورة تحت هذه الخدمة بعد.', 'No published projects under this service yet.') + '</p>') + '</div></section>' + nCtaBand() + '</main>' + nFooter();
+  }
+  function nProject(id) {
+    const p = S.projects.find((x) => x.id === id) || S.projects[0];
+    const colors = { 'التصميم': '#5B4BB8', 'التصنيع': '#9A4A00', 'التركيب': '#1E5BB8', 'التسليم': '#15803D' };
+    let gallery;
+    if (p.stages) {
+      const tabs = ['all', 'التصنيع', 'التركيب', 'التسليم'];
+      const list = S.stageTab === 'all' ? p.stages : p.stages.filter((x) => x[0] === S.stageTab);
+      gallery = nHead(T('مراحل التنفيذ', 'Delivery stages'), T('من المصنع حتى التسليم', 'From the factory to handover')) + '<div class="nfil" role="group" aria-label="' + T('تصفية حسب المرحلة', 'Filter by stage') + '">' + tabs.map((t) => '<button type="button" data-act="stab" data-v="' + t + '" aria-pressed="' + (S.stageTab === t) + '">' + (t === 'all' ? T('كل المراحل', 'All stages') : STG(t)) + '</button>').join('') + '</div><div class="ngal">' + list.map((x) => '<figure class="rv3"><span class="nimg">' + nImg(x[1], L(p.name) + ' — ' + T('مرحلة ', 'stage: ') + STG(x[0])) + '</span><figcaption><i style="background:' + colors[x[0]] + '"></i>' + STG(x[0]) + '</figcaption></figure>').join('') + '</div>';
+    } else {
+      const ph = p.photos.filter(Boolean);
+      gallery = nHead(T('صور المشروع', 'Project photos'), T('من موقع العمل', 'From the site')) + '<div class="ngal">' + ph.map((k, i) => '<figure class="rv3"><span class="nimg">' + nImg(k, L(p.name) + ' — ' + T('صورة ', 'photo ') + N(i + 1)) + '</span></figure>').join('') + '</div>';
+    }
+    const same = S.projects.filter((x) => x.id !== p.id && x.type === p.type);
+    const rel = (same.length ? same : S.projects.filter((x) => x.id !== p.id)).slice(0, 3);
+    return nHeader() + '<main id="nmain"><section class="nph img">' + nImg(coverOf(p), '', true) + '<div class="nc"><nav class="ncrumb" aria-label="' + T('مسار الصفحة', 'Breadcrumb') + '"><a href="#new">' + T('الرئيسية', 'Home') + '</a><span aria-hidden="true">/</span><a href="#new-projects">' + T('مشاريعنا', 'Projects') + '</a><span aria-hidden="true">/</span><span aria-current="page">' + esc(L(p.name)) + '</span></nav><h1>' + esc(L(p.name)) + '</h1><p>' + esc(L(p.desc || '')) + '</p></div></section>' +
+      '<section><div class="nc nfactsrow"><div><span>' + T('المدينة', 'City') + '</span><strong>' + esc(CITY(p.city)) + '</strong></div><div><span>' + T('الخدمة', 'Service') + '</span><strong><a href="#new-s-' + p.type + '" style="text-decoration:underline;text-underline-offset:3px">' + svcName(p.type) + '</a></strong></div><div><span>' + T('الصور', 'Photos') + '</span><strong>' + N(p.stages ? p.stages.length : photoCount(p)) + '</strong></div><div><span>' + T('التوثيق', 'Documented') + '</span><strong>' + (p.stages ? T('بالمراحل', 'By stage') : T('صور نهائية', 'Final photos')) + '</strong></div></div></section>' +
+      '<section class="nsec" style="padding-top:48px"><div class="nc">' + gallery + '</div></section>' +
+      (rel.length ? '<section class="nsec nsoft"><div class="nc">' + nHead(T('مشاريع أخرى', 'More projects'), same.length ? T('من نفس الخدمة', 'From the same service') : T('من أعمالنا', 'From our work'), '', '<a class="nlink" href="#new-projects">' + T('كل المشاريع', 'All projects') + ' ' + NARR + '</a>') + '<div class="ngrid">' + rel.map(nProjCard).join('') + '</div></div></section>' : '') +
+      nCtaBand() + '</main>' + nFooter();
+  }
+  function renderNew() {
+    const r = S.nr || { pg: 'home' };
+    let html;
+    if (r.pg === 'services') html = nServices();
+    else if (r.pg === 'projects') html = nProjects();
+    else if (r.pg === 'service') html = nService(r.id);
+    else if (r.pg === 'project') html = nProject(r.id);
+    else html = nHome();
+    return '<div class="nw">' + html + '</div>';
+  }
+  let nio = null;
+  function nReveal() {
+    if (nio) { nio.disconnect(); nio = null; }
+    if (S.tab !== 'new' || RM || !('IntersectionObserver' in window)) return;
+    const vh = window.innerHeight;
+    nio = new IntersectionObserver((ents) => ents.forEach((e2) => { if (!e2.isIntersecting) return; nio.unobserve(e2.target); e2.target.classList.add('rvin'); e2.target.classList.remove('pre'); }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    app.querySelectorAll('.nw .rv3').forEach((el) => { if (el.getBoundingClientRect().top > vh) { el.classList.add('pre'); nio.observe(el); } });
+  }
+  function nHash() {
+    const r = nParse(location.hash);
+    if (r) {
+      if (S.tab !== 'new') S.prevTab = S.tab;
+      const same = S.tab === 'new' && S.view === 'site' && S.nr && S.nr.pg === r.pg && S.nr.id === r.id && r.pg !== 'contact';
+      if (!S.nr || S.nr.pg !== r.pg || S.nr.id !== r.id) { S.city = 'all'; S.stageTab = 'all'; }
+      S.tab = 'new'; S.view = 'site'; S.nr = r; S.nmenu = false;
+      if (same) { render(true); return; }
+      render();
+      if (r.pg === 'contact') { const c = document.getElementById('ncontact'); if (c) c.scrollIntoView({ behavior: 'auto' }); }
+    } else if (S.tab === 'new') { S.tab = S.prevTab && S.prevTab !== 'new' ? S.prevTab : 'pkgs'; render(); }
+  }
+  window.addEventListener('hashchange', nHash);
+  document.addEventListener('click', (e) => {
+    const an = e.target.closest && e.target.closest('.nw a[href^="#new"]');
+    if (an && !an.dataset.act && an.getAttribute('href') === location.hash) { e.preventDefault(); nHash(); }
+  });
 
   /* ---------- Admin ---------- */
   /* ---------- Admin: linked data helpers (job → client → payments → invoices) ---------- */
@@ -2346,14 +2718,20 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   let lenis = null, mctx = null, mclean = [];
   if (G) {
     G.registerPlugin(window.ScrollTrigger);
-    if (window.Lenis && !RM) {
-      try {
-        lenis = new window.Lenis({ lerp: 0.09, allowNestedScroll: true, prevent: (n) => !!(n && n.closest && n.closest('.pa-body, .dv-screen, .table-wrap, .strip, .side-drawer, .side nav, .pa-swl, .mmenu, [data-lenis-prevent]')) });
-        lenis.on('scroll', window.ScrollTrigger.update);
-        G.ticker.add((t) => lenis.raf(t * 1000));
-        G.ticker.lagSmoothing(0);
-      } catch (e) { lenis = null; }
-    }
+    G.ticker.add((t) => { if (lenis) lenis.raf(t * 1000); });
+    G.ticker.lagSmoothing(0);
+  }
+  function makeLenis() {
+    if (!G || !window.Lenis || RM || lenis) return;
+    try {
+      lenis = new window.Lenis({ lerp: 0.09, allowNestedScroll: true, prevent: (n) => !!(n && n.closest && n.closest('.pa-body, .dv-screen, .table-wrap, .strip, .side-drawer, .side nav, .pa-swl, .mmenu, [data-lenis-prevent]')) });
+      lenis.on('scroll', window.ScrollTrigger.update);
+    } catch (e) { lenis = null; }
+  }
+  /* the new website keeps native browser scrolling (Pro Max note 15) */
+  function syncLenis() {
+    if (S.tab === 'new') { if (lenis) { try { lenis.destroy(); } catch (e) {} lenis = null; } }
+    else makeLenis();
   }
   function scrollToY(y, smooth) {
     if (lenis) { lenis.resize(); lenis.scrollTo(y, smooth ? { duration: 1.1, force: true } : { immediate: true, force: true }); }
@@ -2450,11 +2828,13 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     renderBar();
     const y = window.scrollY;
     const inner = {}; ['.pa-body', '.phone-body', '.dv-appbody .pa-body'].forEach((sel) => { const el = app.querySelector(sel); if (el) inner[sel] = el.scrollTop; });
-    app.innerHTML = S.tab === 'pkgs' ? renderPackages() : S.tab === 'app' ? renderAppTab() : S.view === 'admin' ? renderAdmin() : S.view === 'portal' ? renderPortal() : renderSite();
+    app.innerHTML = S.tab === 'pkgs' ? renderPackages() : S.tab === 'app' ? renderAppTab() : S.view === 'admin' ? renderAdmin() : S.view === 'portal' ? renderPortal() : S.tab === 'new' ? renderNew() : renderSite();
+    syncLenis();
     app.classList.toggle('site-pad', S.tab === 'site' && S.view === 'site');
     scrollToY((keepScroll || S.tab === 'app') ? y : 0);
     if (keepScroll) Object.keys(inner).forEach((sel) => { const el = app.querySelector(sel); if (el) el.scrollTop = inner[sel]; });
     afterRender(!!keepScroll);
+    nReveal();
   }
   function navTo(fn) {
     S.menu = false; S.navOpen = false;
@@ -2560,12 +2940,14 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if (a === 'xdtype') { const i = document.getElementById('xd-val'); S.xd = { type: v, val: Number(i && i.value) || 0 }; render(true); const j = document.getElementById('xd-val'); if (j) j.focus(); return; }
     if (a === 'xdapply') { const i = document.getElementById('xd-val'); let val = Math.max(0, Number(i && i.value) || 0); if (S.xd.type === 'pct') val = Math.min(val, 100); S.xd.val = val; S.xdOpen = false; if (val) S.showPrice = true; toast(val ? T('طُبّق ', 'Applied ') + (S.xd.type === 'pct' ? PCT(val) : SAR(val)) + T(' خصمًا إضافيًا على كل الباقات.', ' extra discount to all plans.') : T('لا يوجد تخفيض إضافي.', 'No extra discount.')); return render(true); }
     if (a === 'xdclear') { S.xd = { type: S.xd.type, val: 0 }; S.xdOpen = false; return render(true); }
-    if (a === 'tab') { return navTo(() => { S.tab = v; render(); }); }
+    if (a === 'tab') { if (v === 'new') { if (nParse(location.hash)) nHash(); else location.hash = 'new'; return; } if (nParse(location.hash)) history.pushState(null, '', location.pathname + location.search); return navTo(() => { S.tab = v; render(); }); }
     if (a === 'try') { S.tab = 'site'; S.view = 'site'; S.route = 'home'; if (Number(v) !== S.pkg) setPkg(Number(v)); else render(); scrollToY(0); return; }
     if (a === 'pkg') return setPkg(Number(v));
     if (a === 'view') { if ((v === 'admin' && !has('admin')) || (v === 'portal' && !has('portal'))) return; return navTo(() => { S.view = v; S.aToast = ''; render(); }); }
     if (a === 'go') { if (v === 'contact') { const go = () => { const c = document.getElementById('contact'); if (c) { if (lenis) { lenis.resize(); lenis.scrollTo(c, { duration: 1.2, force: true }); } else c.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' }); } }; if (S.view === 'site' && document.getElementById('contact')) { S.menu = false; if (!document.getElementById('mmenu')) return go(); render(true); return go(); } S.view = 'site'; S.route = 'home'; S.menu = false; render(); return go(); } return navTo(() => { S.view = 'site'; S.route = v; render(); }); }
     if (a === 'menu') { S.menu = !S.menu; return render(true); }
+    if (a === 'nmenu') { S.nmenu = !S.nmenu; return render(true); }
+    if (a === 'nf') { S.nf = v; return render(true); }
     if (a === 'scrolldown') { const t = document.getElementById('svcs'); if (t) scrollToY(t.getBoundingClientRect().top + window.scrollY - (window.innerWidth > 760 ? (document.getElementById('sh') || {}).offsetHeight || 0 : 0) - document.querySelector('.bar').offsetHeight + 40, true); return; }
     if (a === 'strip') { const s = document.getElementById('strip'); if (s) s.scrollBy({ left: Number(v) * (s.clientWidth * 0.8) * (en() ? 1 : -1), behavior: RM ? 'auto' : 'smooth' }); return; }
     if (a === 'qagain') { S.qSent = false; return render(true); }
@@ -2745,7 +3127,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     S.qSent = true; render(true);
   });
 
-  render();
+  if (nParse(location.hash)) nHash(); else render();
 })();
 </script>
 
